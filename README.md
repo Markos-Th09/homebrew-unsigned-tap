@@ -44,6 +44,8 @@ brew update && brew upgrade --cask
 | `okular` | KDE document viewer (PDF, EPUB, and more) |
 | `qbittorrent` | BitTorrent client |
 | `qownnotes` | Plain-text notepad and to-do list manager |
+| `qlcolorcode` | Quick Look plug-in with syntax highlighting for source code |
+| `qlmarkdown` | Quick Look generator for Markdown files |
 | `texstudio` | LaTeX editor |
 | `wine-stable` | Compatibility layer for running Windows applications |
 
