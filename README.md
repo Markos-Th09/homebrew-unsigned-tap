@@ -46,6 +46,7 @@ brew update && brew upgrade --cask
 | `qownnotes` | Plain-text notepad and to-do list manager |
 | `qlcolorcode` | Quick Look plug-in with syntax highlighting for source code |
 | `qlmarkdown` | Quick Look generator for Markdown files |
+| `quicklook-json` | Quick Look plugin for JSON files |
 | `texstudio` | LaTeX editor |
 | `wine-stable` | Compatibility layer for running Windows applications |
 
