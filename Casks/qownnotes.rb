@@ -13,10 +13,17 @@ cask "qownnotes" do
     strategy :github_latest
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   auto_updates true
   depends_on macos: ">= :monterey"
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QOwnNotes.app"
+
+  end
+
 
   app "QOwnNotes.app"
 

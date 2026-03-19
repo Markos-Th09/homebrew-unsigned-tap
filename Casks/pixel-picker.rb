@@ -1,0 +1,25 @@
+cask "pixel-picker" do
+  version "1.6.1"
+  sha256 "2c98627f6fca2f3a7d043499e63be25dd80ecd6ab848e15637961f10ebc0bd6f"
+
+  url "https://github.com/acheronfail/pixel-picker/releases/download/#{version}/Pixel.Picker.#{version}.dmg"
+  name "Pixel Picker"
+  desc "Menu bar application to pick colours from your screen"
+  homepage "https://github.com/acheronfail/pixel-picker"
+
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Pixel Picker.app"
+
+  end
+
+
+  app "Pixel Picker.app"
+
+  zap trash: [
+    "~/Library/Logs/Pixel Picker",
+    "~/Library/Preferences/Pixel Picker",
+  ]
+end

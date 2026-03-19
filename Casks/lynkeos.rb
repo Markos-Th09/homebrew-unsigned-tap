@@ -1,0 +1,33 @@
+cask "lynkeos" do
+  version "3.10"
+  sha256 "18b37ebcf2ebcb08875e2ce55680050b661122147d5ffa15d7090660b1714394"
+
+  url "https://downloads.sourceforge.net/lynkeos/lynkeos/#{version}/Lynkeos-App-#{version.dots_to_hyphens}.zip",
+      verified: "downloads.sourceforge.net/lynkeos/"
+  name "Lynkeos"
+  desc "Astronomical webcam image processing software"
+  homepage "https://lynkeos.sourceforge.io/"
+
+  livecheck do
+    url "https://sourceforge.net/projects/lynkeos/rss?path=/lynkeos"
+    regex(%r{url=.*?/v?(\d+(?:\.\d+)+)/Lynkeos[._-]App[\d._-]*\.zip}i)
+  end
+
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Lynkeos.app"
+
+  end
+
+
+  app "Lynkeos-App-#{version.dots_to_hyphens}/Lynkeos.app"
+
+  zap trash: [
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/net.sourceforge.lynkeos.sfl*",
+    "~/Library/Caches/com.apple.helpd/Generated/Lynkeos help*",
+    "~/Library/Preferences/net.sourceforge.lynkeos.plist",
+    "~/Library/Saved Application State/net.sourceforge.lynkeos.savedState",
+  ]
+end

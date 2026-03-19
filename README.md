@@ -34,21 +34,36 @@ brew update && brew upgrade --cask
 
 ## Available Casks
 
-| Cask | Description |
-|------|-------------|
-| `alacritty` | GPU-accelerated terminal emulator |
-| `double-commander` | Dual-pane file manager |
-| `dupeguru` | Duplicate file finder |
-| `gstreamer-runtime` | GStreamer open-source multimedia framework runtime |
-| `lyx` | GUI document processor built on LaTeX |
-| `okular` | KDE document viewer (PDF, EPUB, and more) |
-| `qbittorrent` | BitTorrent client |
-| `qownnotes` | Plain-text notepad and to-do list manager |
-| `qlcolorcode` | Quick Look plug-in with syntax highlighting for source code |
-| `qlmarkdown` | Quick Look generator for Markdown files |
-| `quicklook-json` | Quick Look plugin for JSON files |
-| `texstudio` | LaTeX editor |
-| `wine-stable` | Compatibility layer for running Windows applications |
+This tap tracks the full upstream set of casks that were disabled because of
+`fails_gatekeeper_check` and keeps them installable here.
+
+Browse all current entries in `Casks/`.
+
+```bash
+# List all tokens in this tap
+ls Casks | sed 's/\.rb$//'
+```
+
+### Popular Casks in this Tap
+
+These are examples of widely known apps available here, to show why this tap
+is practically useful:
+
+- alacritty
+- qbittorrent
+- chromium
+- chromedriver
+- darktable
+- flameshot
+- freetube
+- librewolf
+- copyq
+- lyx
+- texstudio
+- qownnotes
+- qlmarkdown
+- wine-stable
+- gstreamer-runtime
 
 ---
 

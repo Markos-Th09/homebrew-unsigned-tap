@@ -1,0 +1,36 @@
+cask "dvdstyler" do
+  version "3.2.1_1"
+  sha256 "79da43f15c1eb8002cf4a9282ff61047fdd0911532a413e0b3f9077530673ac5"
+
+  url "https://downloads.sourceforge.net/dvdstyler/DVDStyler-#{version}-MacOSX.dmg",
+      verified: "sourceforge.net/dvdstyler/"
+  name "DVDStyler"
+  desc "DVD authoring application"
+  homepage "https://www.dvdstyler.org/"
+
+  livecheck do
+    url "https://sourceforge.net/projects/dvdstyler/rss?path=/dvdstyler"
+    regex(%r{url=.*?/DVDStyler[._-]?v?(\d+(?:[._]\d+)+)(?:[._-]?MacOSX?)?\.dmg}i)
+  end
+
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DVDStyler.app"
+
+  end
+
+
+  app "DVDStyler.app"
+
+  zap trash: [
+    "~/Library/Preferences/DVDStyler Preferences",
+    "~/Library/Preferences/org.dvdstyler.DVDStyler.plist",
+    "~/Library/Saved Application State/org.dvdstyler.DVDStyler.savedState",
+  ]
+
+  caveats do
+    requires_rosetta
+  end
+end

@@ -12,8 +12,11 @@ cask "gstreamer-runtime" do
     regex(/gstreamer[._-]1\.0[._-]v?(\d+(?:\.\d+)+)[._-]universal\.pkg/i)
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/gstreamer-1.0-#{version}-universal.pkg"
+  end
   pkg "gstreamer-1.0-#{version}-universal.pkg"
 
   uninstall pkgutil: [

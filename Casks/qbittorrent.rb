@@ -23,11 +23,15 @@ cask "qbittorrent" do
   desc "Peer to peer Bitorrent client"
   homepage "https://www.qbittorrent.org/"
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   conflicts_with cask: "qbittorrent@lt20"
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
+  end
+
   app "qbittorrent.app", target: "qBittorrent.app"
 
   zap trash: [

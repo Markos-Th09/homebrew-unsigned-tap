@@ -13,7 +13,14 @@ cask "dupeguru" do
     strategy :github_latest
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dupeguru.app"
+
+  end
+
 
   app "dupeguru.app"
 

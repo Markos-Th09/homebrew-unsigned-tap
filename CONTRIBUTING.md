@@ -44,8 +44,9 @@ Homebrew/homebrew-cask repository.
    end
    ```
 
-4. **Include a `postflight` block** to strip the quarantine attribute so the
-   app launches without a Gatekeeper prompt:
+4. **Mandatory `postflight` for app bundles** — every cask with an app bundle
+   must include a `postflight` block that removes the quarantine attribute so
+   the app launches without a Gatekeeper prompt:
 
    ```ruby
    postflight do
@@ -53,7 +54,13 @@ Homebrew/homebrew-cask repository.
    end
    ```
 
-5. **Calculate the SHA-256** of the download URL:
+5. **If importing from upstream, keep behavior intact**:
+
+   - Keep upstream stanzas unless they conflict with this tap's goals.
+   - Do not keep active `disable!` lines in this tap.
+   - Convert upstream disable state to an informational comment.
+
+6. **Calculate the SHA-256** of the download URL:
 
    ```bash
    curl -L "<download_url>" | shasum -a 256
@@ -66,6 +73,31 @@ Homebrew/homebrew-cask repository.
 1. Update `version` and `sha256` to the new values.
 2. Verify that the `url` still resolves correctly for the new version.
 3. Run local checks (see below) before opening a PR.
+
+## Syncing with Upstream Gatekeeper Disables
+
+If your goal is to keep this tap aligned with upstream casks disabled for
+`fails_gatekeeper_check`, sync from the official API first, then submit only
+the missing tokens.
+
+```bash
+curl -s https://formulae.brew.sh/api/cask.json \
+   | jq -r '.[] | select(.disable_args.because == "fails_gatekeeper_check") | .token'
+```
+
+When importing a cask from upstream, do not keep an active `disable!` stanza
+in this tap. Convert it to an informational comment, e.g.:
+
+```ruby
+# Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+```
+
+During bulk syncs, existing casks in this repo are considered compliant if
+they satisfy these requirements:
+
+- No active `disable!` stanza remains.
+- `brew style --cask` passes.
+- `brew audit --cask` is clean except expected unsigned/notarization warnings.
 
 ---
 

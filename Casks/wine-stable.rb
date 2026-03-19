@@ -31,13 +31,20 @@ cask "wine-stable" do
     end
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   conflicts_with cask: [
     "wine@devel",
     "wine@staging",
   ]
   depends_on cask: "other-gstreamer-runtime"
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
+
+  end
+
 
   app "Wine Stable.app"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/appdb"

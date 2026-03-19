@@ -13,7 +13,14 @@ cask "lyx" do
     regex(/LyX[._-]v?(\d+(?:\.\d+)+)\+qt5/i)
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"
+
+  end
+
 
   app "LyX.app"
   binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"

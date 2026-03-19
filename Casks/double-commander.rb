@@ -19,9 +19,16 @@ cask "double-commander" do
     end
   end
 
-  #   disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on macos: ">= :big_sur"
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Double Commander.app"
+
+  end
+
 
   app "Double Commander.app"
 

@@ -1,0 +1,22 @@
+cask "localizationeditor" do
+  version "2.9.2"
+  sha256 "6415313128c1dbbcc0432e7108c2eba87e558ad0b5f6a4a6c80243ceb97220ea"
+
+  url "https://github.com/igorkulman/iOSLocalizationEditor/releases/download/v#{version}/LocalizationEditor.app.zip"
+  name "LocalizationEditor"
+  desc "iOS app localization manager"
+  homepage "https://github.com/igorkulman/iOSLocalizationEditor/"
+
+  # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  postflight do
+
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LocalizationEditor.app"
+
+  end
+
+
+  app "LocalizationEditor.app"
+
+  # No zap stanza required
+end
