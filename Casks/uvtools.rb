@@ -14,14 +14,10 @@ cask "uvtools" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UVtools.app"
-
-  end
-
-
   app "UVtools.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UVtools.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/com.UVtools.plist",

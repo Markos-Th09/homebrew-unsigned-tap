@@ -18,14 +18,10 @@ cask "openemu@experimental" do
   auto_updates true
   conflicts_with cask: "openemu"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenEmu.app"
-
-  end
-
-
   app "OpenEmu.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenEmu.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.openemu.openemu.sfl*",

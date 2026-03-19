@@ -20,14 +20,10 @@ cask "teamspeak-client@beta" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TeamSpeak.app"
-
-  end
-
-
   app "TeamSpeak.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TeamSpeak.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/com.teamspeak.#{version.major}.client.plist*",

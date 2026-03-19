@@ -11,14 +11,10 @@ cask "corelocationcli" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CoreLocationCLI.app"
-
-  end
-
-
   app "CoreLocationCLI.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CoreLocationCLI.app"
+  end
   binary "#{appdir}/CoreLocationCLI.app/Contents/MacOS/CoreLocationCLI"
 
   # no zap stanza required

@@ -22,11 +22,11 @@ cask "metasploit" do
 
   depends_on formula: "nmap"
 
+  pkg "metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
+  binary "/opt/metasploit-framework/bin/msfbinscan"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
   end
-  pkg "metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
-  binary "/opt/metasploit-framework/bin/msfbinscan"
   binary "/opt/metasploit-framework/bin/msfconsole"
   binary "/opt/metasploit-framework/bin/msfd"
   binary "/opt/metasploit-framework/bin/msfdb"

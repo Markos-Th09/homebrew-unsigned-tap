@@ -17,14 +17,10 @@ cask "starsector" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Starsector.app"
-
-  end
-
-
   app "Starsector.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Starsector.app"
+  end
 
   # No zap stanza required
 end

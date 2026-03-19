@@ -15,14 +15,10 @@ cask "texstudio" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/texstudio-#{version}-osx#{arch}.app"
-
-  end
-
-
   app "texstudio-#{version}-osx#{arch}.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/texstudio-#{version}-osx#{arch}.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/texstudio.sfl*",

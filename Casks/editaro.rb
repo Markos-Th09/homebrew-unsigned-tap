@@ -19,14 +19,10 @@ cask "editaro" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Editaro.app"
-
-  end
-
-
   app "Editaro.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Editaro.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Editaro",

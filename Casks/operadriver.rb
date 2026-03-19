@@ -14,10 +14,10 @@ cask "operadriver" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  binary "operadriver_mac64/operadriver"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/operadriver_mac64/operadriver"
   end
-  binary "operadriver_mac64/operadriver"
 
   # No zap stanza required
 

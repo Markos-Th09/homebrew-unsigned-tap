@@ -15,14 +15,10 @@ cask "ueli" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ueli.app"
-
-  end
-
-
   app "ueli.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ueli.app"
+  end
 
   uninstall quit: "ueli"
 

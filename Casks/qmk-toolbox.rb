@@ -12,14 +12,10 @@ cask "qmk-toolbox" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QMK Toolbox.app"
-
-  end
-
-
   app "QMK Toolbox.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QMK Toolbox.app"
+  end
 
   uninstall quit: "fm.qmk.toolbox"
 

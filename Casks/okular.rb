@@ -16,14 +16,10 @@ cask "okular" do
     regex(/okular-master-(\d+)-macos-clang-#{arch}\.dmg/i)
   end
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/okular.app"
-
-  end
-
-
   app "okular.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/okular.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/okular",

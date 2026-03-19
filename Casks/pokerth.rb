@@ -12,14 +12,10 @@ cask "pokerth" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pokerth.app"
-
-  end
-
-
   app "pokerth.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pokerth.app"
+  end
 
   zap trash: "~/.pokerth"
 

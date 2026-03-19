@@ -12,14 +12,10 @@ cask "ballast" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ballast.app"
-
-  end
-
-
   app "ballast.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ballast.app"
+  end
 
   uninstall launchctl: "nz.jamsinclair.ballast-LaunchAtLoginHelper",
             quit:      "nz.jamsinclair.ballast"

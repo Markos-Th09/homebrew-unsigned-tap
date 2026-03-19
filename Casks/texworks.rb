@@ -39,14 +39,10 @@ cask "texworks" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TeXworks.app"
-
-  end
-
-
   app "TeXworks.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TeXworks.app"
+  end
 
   zap trash: "~/Library/Preferences/org.tug.TeXworks.plist"
 end

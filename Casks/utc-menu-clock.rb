@@ -17,14 +17,10 @@ cask "utc-menu-clock" do
 
   depends_on macos: ">= :sequoia"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UTCMenuClock.app"
-
-  end
-
-
   app "UTCMenuClock.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UTCMenuClock.app"
+  end
 
   zap trash: "~/Library/Preferences/net.retina.UTCMenuClock.plist"
 end

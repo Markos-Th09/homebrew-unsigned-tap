@@ -16,14 +16,10 @@ cask "vym" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/vym.app"
-
-  end
-
-
   app "vym.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/vym.app"
+  end
 
   zap trash: "~/Library/Preferences/com.insilmaril.vym.plist"
 

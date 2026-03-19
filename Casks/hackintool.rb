@@ -11,14 +11,10 @@ cask "hackintool" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hackintool.app"
-
-  end
-
-
   app "Hackintool.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hackintool.app"
+  end
 
   zap trash: [
     "~/Library/Caches/com.apple.helpd/Generated/com.Headsoft.Hackintool.help*",

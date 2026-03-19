@@ -12,14 +12,10 @@ cask "melonds" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/melonDS.app"
-
-  end
-
-
   app "melonDS.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/melonDS.app"
+  end
 
   zap trash: "~/Library/Preferences/melonDS/melonDS.ini"
 end

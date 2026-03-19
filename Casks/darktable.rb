@@ -25,14 +25,10 @@ cask "darktable" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/darktable.app"
-
-  end
-
-
   app "darktable.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/darktable.app"
+  end
 
   zap trash: [
     "~/.cache/darktable",

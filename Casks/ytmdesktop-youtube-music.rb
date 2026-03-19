@@ -34,14 +34,10 @@ cask "ytmdesktop-youtube-music" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouTube Music Desktop App.app"
-
-  end
-
-
   app "YouTube Music Desktop App.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouTube Music Desktop App.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/app.ytmd.plist",

@@ -17,14 +17,10 @@ cask "xaos" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XaoS.app"
-
-  end
-
-
   app "XaoS.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XaoS.app"
+  end
 
   zap trash: "~/Library/Preferences/net.sourceforge.xaos.XaoS.plist"
 

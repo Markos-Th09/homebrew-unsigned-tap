@@ -22,10 +22,10 @@ cask "chromedriver@beta" do
 
   conflicts_with cask: "chromedriver"
 
+  binary "chromedriver-mac-#{arch}/chromedriver"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/chromedriver-mac-#{arch}/chromedriver"
   end
-  binary "chromedriver-mac-#{arch}/chromedriver"
 
   # No zap stanza required
 end

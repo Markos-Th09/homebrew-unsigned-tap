@@ -15,14 +15,10 @@ cask "lx-music" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/lx-music-desktop.app"
-
-  end
-
-
   app "lx-music-desktop.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/lx-music-desktop.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/lx-music-desktop",

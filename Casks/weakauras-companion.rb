@@ -11,14 +11,10 @@ cask "weakauras-companion" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WeakAuras Companion.app"
-
-  end
-
-
   app "WeakAuras Companion.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WeakAuras Companion.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/weakauras-companion",

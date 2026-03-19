@@ -17,14 +17,10 @@ cask "dmidiplayer" do
 
   depends_on formula: "fluid-synth"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dmidiplayer.app"
-
-  end
-
-
   app "dmidiplayer.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dmidiplayer.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/net.sourceforge.dmidiplayer.plist",

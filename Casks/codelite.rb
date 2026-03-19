@@ -68,14 +68,10 @@ cask "codelite" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/codelite.app"
-
-  end
-
-
   app "codelite.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/codelite.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/codelite",

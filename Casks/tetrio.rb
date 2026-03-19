@@ -19,14 +19,10 @@ cask "tetrio" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TETR.IO.app"
-
-  end
-
-
   app "TETR.IO.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TETR.IO.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/tetrio-desktop",

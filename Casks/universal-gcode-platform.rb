@@ -20,14 +20,10 @@ cask "universal-gcode-platform" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Universal Gcode Sender.app"
-
-  end
-
-
   app "Universal Gcode Sender.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Universal Gcode Sender.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/ugsplatform",

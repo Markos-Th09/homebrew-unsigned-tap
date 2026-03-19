@@ -10,11 +10,8 @@ cask "tinypng4mac" do
     end
 
     postflight do
-
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TinyPNG4Mac.app"
-
     end
-
 
     app "TinyPNG4Mac.app"
   end

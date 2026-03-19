@@ -18,14 +18,10 @@ cask "qownnotes" do
   auto_updates true
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QOwnNotes.app"
-
-  end
-
-
   app "QOwnNotes.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QOwnNotes.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/com.pbe.QOwnNotes.plist",

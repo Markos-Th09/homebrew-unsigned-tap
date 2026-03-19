@@ -18,14 +18,10 @@ cask "aria2d" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Aria2D.app"
-
-  end
-
-
   app "Aria2D.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Aria2D.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Aria2D",

@@ -11,14 +11,10 @@ cask "amitv87-pip" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PiP.app"
-
-  end
-
-
   app "PiP.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PiP.app"
+  end
 
   zap trash: "~/Library/Saved Application State/com.boggyb.PiP.savedState"
 end

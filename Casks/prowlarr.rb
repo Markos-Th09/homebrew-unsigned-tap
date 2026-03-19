@@ -23,14 +23,10 @@ cask "prowlarr" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Prowlarr.app"
-
-  end
-
-
   app "Prowlarr.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Prowlarr.app"
+  end
 
   zap trash: "~/.config/Prowlarr"
 end

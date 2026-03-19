@@ -28,14 +28,10 @@ cask "phd2" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PHD2.app"
-
-  end
-
-
   app "PHD2.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PHD2.app"
+  end
 
   zap trash: [
     "~/Documents/PHD2",

@@ -8,14 +8,10 @@ cask "blheli-configurator" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BLHeli Configurator.app"
-
-  end
-
-
   app "BLHeli Configurator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BLHeli Configurator.app"
+  end
 
   caveats do
     requires_rosetta

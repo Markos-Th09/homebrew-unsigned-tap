@@ -14,14 +14,10 @@ cask "mark-text" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MarkText.app"
-
-  end
-
-
   app "MarkText.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MarkText.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/marktext",

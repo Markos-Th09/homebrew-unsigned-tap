@@ -19,11 +19,11 @@ cask "vertcoin-core" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
+
+  app "Vertcoin-Qt.app", target: "Vertcoin Core.app"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vertcoin-Qt.app"
   end
-
-  app "Vertcoin-Qt.app", target: "Vertcoin Core.app"
 
   preflight do
     set_permissions "#{staged_path}/Vertcoin-Qt.app", "0755"

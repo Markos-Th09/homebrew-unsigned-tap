@@ -14,10 +14,10 @@ cask "hashbackup" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  binary "hb"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/hb"
   end
-  binary "hb"
 
   zap trash: "~/hashbackup"
 

@@ -17,14 +17,10 @@ cask "clover-configurator" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Clover Configurator.app"
-
-  end
-
-
   app "Clover Configurator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Clover Configurator.app"
+  end
 
   zap trash: [
     "~/Library/Caches/org.altervista.mackie100projects.Clover-Configurator",

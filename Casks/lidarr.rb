@@ -29,14 +29,10 @@ cask "lidarr" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Lidarr.app"
-
-  end
-
-
   app "Lidarr.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Lidarr.app"
+  end
 
   zap trash: "~/.config/Lidarr/"
 end

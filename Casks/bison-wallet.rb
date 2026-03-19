@@ -28,14 +28,10 @@ cask "bison-wallet" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bison Wallet.app"
-
-  end
-
-
   app "Bison Wallet.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bison Wallet.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Dexc",

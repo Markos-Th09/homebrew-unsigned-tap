@@ -17,14 +17,10 @@ cask "brewtarget" do
 
   depends_on macos: ">= :sequoia"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/brewtarget_#{version}_MacOS.app"
-
-  end
-
-
   app "brewtarget_#{version}_MacOS.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/brewtarget_#{version}_MacOS.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/brewtarget",

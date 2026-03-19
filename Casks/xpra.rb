@@ -30,14 +30,10 @@ cask "xpra" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xpra.app"
-
-  end
-
-
   app "Xpra.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xpra.app"
+  end
   binary "#{appdir}/Xpra.app/Contents/MacOS/Xpra", target: "xpra"
 
   zap delete: "/Library/Application Support/Xpra",

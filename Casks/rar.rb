@@ -17,10 +17,10 @@ cask "rar" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  binary "rar/rar"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/rar/rar"
   end
-  binary "rar/rar"
   binary "rar/unrar"
   artifact "rar/default.sfx", target: "#{HOMEBREW_PREFIX}/lib/default.sfx"
   artifact "rar/rarfiles.lst", target: "#{HOMEBREW_PREFIX}/etc/rarfiles.lst"

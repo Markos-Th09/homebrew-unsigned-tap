@@ -42,14 +42,10 @@ cask "openoffice" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenOffice.app"
-
-  end
-
-
   app "OpenOffice.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenOffice.app"
+  end
 
   zap trash: "~/Library/Application Support/OpenOffice"
 

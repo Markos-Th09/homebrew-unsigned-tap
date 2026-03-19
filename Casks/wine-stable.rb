@@ -39,14 +39,10 @@ cask "wine-stable" do
   ]
   depends_on cask: "other-gstreamer-runtime"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
-
-  end
-
-
   app "Wine Stable.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
+  end
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/appdb"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/winehelp"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/msidb"

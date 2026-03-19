@@ -14,14 +14,10 @@ cask "tiddly" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TiddlyDesktop.app"
-
-  end
-
-
   app "TiddlyDesktop-mac#{arch}-v#{version}/TiddlyDesktop.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TiddlyDesktop.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/TiddlyDesktop",

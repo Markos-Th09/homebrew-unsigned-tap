@@ -20,14 +20,10 @@ cask "goneovim" do
   depends_on formula: "neovim"
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/goneovim.app"
-
-  end
-
-
   app "goneovim-v#{version}-macos-#{arch}/goneovim.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/goneovim.app"
+  end
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/goneovim.wrapper.sh"
   binary shimscript, target: "goneovim"

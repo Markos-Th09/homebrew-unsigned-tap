@@ -17,14 +17,10 @@ cask "sonarr@beta" do
   conflicts_with cask: "sonarr"
   depends_on cask: "mono-mdk"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
-
-  end
-
-
   app "Sonarr.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
+  end
 
   zap trash: [
     "~/.config/Sonarr",

@@ -18,14 +18,10 @@ cask "powder" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/The Powder Toy.app"
-
-  end
-
-
   app "The Powder Toy.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/The Powder Toy.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/The Powder Toy",

@@ -12,14 +12,10 @@ cask "pb" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PB for Desktop.app"
-
-  end
-
-
   app "PB for Desktop.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PB for Desktop.app"
+  end
 
   uninstall launchctl: "PB for Desktop",
             quit:      [

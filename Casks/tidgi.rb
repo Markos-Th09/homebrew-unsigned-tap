@@ -20,14 +20,10 @@ cask "tidgi" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TidGi.app"
-
-  end
-
-
   app "TidGi.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TidGi.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/TidGi",

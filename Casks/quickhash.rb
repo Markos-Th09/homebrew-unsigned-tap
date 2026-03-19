@@ -23,14 +23,10 @@ cask "quickhash" do
 
   container nested: "Quickhash-GUI_#{version.csv.third}#{version.csv.fourth}#{version.csv.fifth}.dmg"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quickhash-GUI.app"
-
-  end
-
-
   app "Quickhash-GUI.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quickhash-GUI.app"
+  end
 
   zap trash: [
     "~/.Quickhash-GUI",

@@ -36,14 +36,10 @@ cask "windterm" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WindTerm.app"
-
-  end
-
-
   app "WindTerm.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WindTerm.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/KingToolbox.WindTerm.plist",

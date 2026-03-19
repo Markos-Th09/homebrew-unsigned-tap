@@ -17,14 +17,10 @@ cask "gpxsee" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GPXSee.app"
-
-  end
-
-
   app "GPXSee.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GPXSee.app"
+  end
 
   zap trash: [
     "~/Library/Caches/GPXSee",

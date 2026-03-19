@@ -23,14 +23,10 @@ cask "syntax-highlight" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Syntax Highlight.app"
-
-  end
-
-
   app "Syntax Highlight.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Syntax Highlight.app"
+  end
   binary "#{appdir}/Syntax Highlight.app/Contents/Resources/syntax_highlight_cli"
 
   zap trash: [

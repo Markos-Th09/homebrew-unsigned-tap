@@ -23,14 +23,10 @@ cask "min" do
   auto_updates true
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Min.app"
-
-  end
-
-
   app "Min.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Min.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Min",

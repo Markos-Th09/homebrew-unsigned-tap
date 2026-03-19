@@ -15,14 +15,10 @@ cask "dvdstyler" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DVDStyler.app"
-
-  end
-
-
   app "DVDStyler.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DVDStyler.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/DVDStyler Preferences",

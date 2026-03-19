@@ -9,14 +9,10 @@ cask "jgrennison-openttd" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenTTD.app"
-
-  end
-
-
   app "OpenTTD.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenTTD.app"
+  end
 
   zap trash: [
     "~/Documents/OpenTTD",

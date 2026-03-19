@@ -12,14 +12,10 @@ cask "blobsaver" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/blobsaver.app"
-
-  end
-
-
   app "blobsaver.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/blobsaver.app"
+  end
   binary "#{appdir}/blobsaver.app/Contents/MacOS/blobsaver"
 
   zap trash: "~/Library/Preferences/airsquared.blobsaver.app.plist"

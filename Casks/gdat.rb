@@ -24,14 +24,10 @@ cask "gdat" do
   depends_on macos: ">= :big_sur"
   container nested: "macOS 64 bit/Genealogical DNA Analysis Tool.app.tar"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Genealogical DNA Analysis Tool.app"
-
-  end
-
-
   app "Genealogical DNA Analysis Tool.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Genealogical DNA Analysis Tool.app"
+  end
 
   zap trash: [
     "/Library/Logs/DiagnosticReports/Genealogical DNA Analysis Tool*.diag",

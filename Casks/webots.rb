@@ -19,14 +19,10 @@ cask "webots" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Webots.app"
-
-  end
-
-
   app "Webots.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Webots.app"
+  end
 
   uninstall quit: "com.cyberbotics.webots"
 

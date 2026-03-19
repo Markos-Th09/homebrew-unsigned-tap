@@ -17,14 +17,10 @@ cask "textbar" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TextBar.app"
-
-  end
-
-
   app "TextBar.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TextBar.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/TextBar",

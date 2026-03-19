@@ -15,14 +15,10 @@ cask "dungeon-crawl-stone-soup-tiles" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dungeon Crawl Stone Soup - Tiles.app"
-
-  end
-
-
   app "Dungeon Crawl Stone Soup - Tiles.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dungeon Crawl Stone Soup - Tiles.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Dungeon Crawl Stone Soup",

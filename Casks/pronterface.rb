@@ -16,14 +16,10 @@ cask "pronterface" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pronterface.app"
-
-  end
-
-
   app "pronterface.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pronterface.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/Pronterface.plist",

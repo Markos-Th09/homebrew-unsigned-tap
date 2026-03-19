@@ -13,14 +13,10 @@ cask "dyn-updater" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dyn Updater.app"
-
-  end
-
-
   app "Dyn Updater.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dyn Updater.app"
+  end
 
   caveats do
     requires_rosetta

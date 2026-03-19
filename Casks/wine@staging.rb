@@ -39,14 +39,10 @@ cask "wine@staging" do
   ]
   depends_on cask: "gstreamer-runtime"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Staging.app"
-
-  end
-
-
   app "Wine Staging.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Staging.app"
+  end
   dir_path = "#{appdir}/Wine Staging.app/Contents/Resources"
   binary "#{dir_path}/start/bin/appdb"
   binary "#{dir_path}/start/bin/winehelp"

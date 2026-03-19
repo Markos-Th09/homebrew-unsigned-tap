@@ -15,14 +15,10 @@ cask "ultrastardeluxe" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UltraStarDeluxe.app"
-
-  end
-
-
   app "UltraStarDeluxe.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UltraStarDeluxe.app"
+  end
 
   zap trash: "~/Library/Application Support/UltraStarDeluxe1.3"
 end

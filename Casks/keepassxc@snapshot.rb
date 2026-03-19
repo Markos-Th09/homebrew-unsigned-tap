@@ -37,14 +37,10 @@ cask "keepassxc@snapshot" do
   ]
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KeePassXC.app"
-
-  end
-
-
   app "KeePassXC.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KeePassXC.app"
+  end
   binary "#{appdir}/KeePassXC.app/Contents/MacOS/keepassxc-cli"
 
   uninstall quit: "org.keepassxc.keepassxc"

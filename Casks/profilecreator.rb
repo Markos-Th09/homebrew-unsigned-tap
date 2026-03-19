@@ -11,14 +11,10 @@ cask "profilecreator" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ProfileCreator.app"
-
-  end
-
-
   app "ProfileCreator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ProfileCreator.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/ProfileCreator",

@@ -11,14 +11,10 @@ cask "nuage" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nuage.app"
-
-  end
-
-
   app "Nuage.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nuage.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/CrashReporter/Nuage*.plist",

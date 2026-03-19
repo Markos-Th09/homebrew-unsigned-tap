@@ -17,14 +17,10 @@ cask "c0re100-qbittorrent" do
   conflicts_with cask: "qbittorrent"
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
-
-  end
-
-
   app "qbittorrent.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
+  end
 
   zap trash: [
     "~/.config/qBittorrent",

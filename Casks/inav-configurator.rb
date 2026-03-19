@@ -19,14 +19,10 @@ cask "inav-configurator" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/INAV Configurator.app"
-
-  end
-
-
   app "INAV Configurator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/INAV Configurator.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/inav-configurator",

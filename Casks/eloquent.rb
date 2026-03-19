@@ -12,14 +12,10 @@ cask "eloquent" do
   auto_updates true
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Eloquent.app"
-
-  end
-
-
   app "Eloquent.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Eloquent.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Eloquent",

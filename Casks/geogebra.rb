@@ -22,14 +22,10 @@ cask "geogebra" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GeoGebra Classic #{version.major}.app"
-
-  end
-
-
   app "GeoGebra Classic #{version.major}.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GeoGebra Classic #{version.major}.app"
+  end
 
   uninstall quit:       "org.geogebra.mathapps",
             login_item: "GeoGebra",

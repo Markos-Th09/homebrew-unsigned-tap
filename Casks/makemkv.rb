@@ -16,14 +16,10 @@ cask "makemkv" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MakeMKV.app"
-
-  end
-
-
   app "MakeMKV.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MakeMKV.app"
+  end
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/makemkvcon"
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/mmccextr"
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/mmgplsrv"

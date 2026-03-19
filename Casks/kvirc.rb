@@ -30,14 +30,10 @@ cask "kvirc" do
   depends_on arch: :arm64
   depends_on macos: ">= :sonoma"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KVIrc.app"
-
-  end
-
-
   app "KVIrc.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KVIrc.app"
+  end
 
   zap trash: [
     "~/.kvirc*.rc",

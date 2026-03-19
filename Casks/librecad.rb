@@ -34,14 +34,10 @@ cask "librecad" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LibreCAD.app"
-
-  end
-
-
   app "LibreCAD.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LibreCAD.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/LibreCAD",

@@ -17,14 +17,10 @@ cask "whichspace" do
   auto_updates true
   depends_on macos: ">= :sonoma"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WhichSpace.app"
-
-  end
-
-
   app "WhichSpace.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WhichSpace.app"
+  end
 
   uninstall quit: "io.gechr.WhichSpace"
 

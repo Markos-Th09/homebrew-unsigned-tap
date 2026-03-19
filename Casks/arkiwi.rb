@@ -16,14 +16,10 @@ cask "arkiwi" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ArKiwi.app"
-
-  end
-
-
   app "ArKiwi.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ArKiwi.app"
+  end
 
   zap trash: [
     "~/Library/Containers/com.mariogt.arkiwi/Data/Library/Application Support/ArKiwi",

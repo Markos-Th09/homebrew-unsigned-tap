@@ -23,14 +23,10 @@ cask "double-commander" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Double Commander.app"
-
-  end
-
-
   app "Double Commander.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Double Commander.app"
+  end
 
   zap trash: "~/Library/Caches/doublecmd"
 end

@@ -12,14 +12,10 @@ cask "iina+" do
   auto_updates true
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/IINA+.app"
-
-  end
-
-
   app "IINA+.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/IINA+.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/com.xjbeta.iina-plus",

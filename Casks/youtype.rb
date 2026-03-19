@@ -16,14 +16,10 @@ cask "youtype" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouType.app"
-
-  end
-
-
   app "YouType.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouType.app"
+  end
 
   uninstall quit: "com.AVKorotkov.YouType"
 

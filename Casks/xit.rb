@@ -10,11 +10,8 @@ cask "xit" do
     end
 
     postflight do
-
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xit.app"
-
     end
-
 
     app "Xit.app"
 

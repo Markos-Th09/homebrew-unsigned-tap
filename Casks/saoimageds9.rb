@@ -40,14 +40,10 @@ cask "saoimageds9" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SAOImageDS9.app"
-
-  end
-
-
   app "SAOImageDS9.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SAOImageDS9.app"
+  end
 
   zap trash: [
     "~/.ds9",

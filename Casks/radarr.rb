@@ -23,14 +23,10 @@ cask "radarr" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Radarr.app"
-
-  end
-
-
   app "Radarr.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Radarr.app"
+  end
 
   zap trash: "~/.config/Radarr"
 end

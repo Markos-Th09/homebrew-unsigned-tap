@@ -23,14 +23,10 @@ cask "chessx" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ChessX.app"
-
-  end
-
-
   app "ChessX.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ChessX.app"
+  end
 
   zap trash: [
     "~/.config/chessx",

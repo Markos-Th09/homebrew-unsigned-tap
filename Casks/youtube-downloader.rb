@@ -9,14 +9,10 @@ cask "youtube-downloader" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Youtube Downloader.app"
-
-  end
-
-
   app "Youtube Downloader.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Youtube Downloader.app"
+  end
 
   zap trash: "~/Library/Preferences/denbeke.Youtube-Downloader.plist"
 end

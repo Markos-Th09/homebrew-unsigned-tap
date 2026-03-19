@@ -21,14 +21,10 @@ cask "panwriter" do
   depends_on formula: "pandoc"
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PanWriter.app"
-
-  end
-
-
   app "PanWriter.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PanWriter.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/PanWriter",

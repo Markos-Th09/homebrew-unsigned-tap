@@ -33,14 +33,10 @@ cask "appium-inspector" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Appium Inspector.app"
-
-  end
-
-
   app "Appium Inspector.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Appium Inspector.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/appium-inspector",

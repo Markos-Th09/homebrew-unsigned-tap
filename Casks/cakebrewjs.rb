@@ -16,14 +16,10 @@ cask "cakebrewjs" do
 
   depends_on macos: ">= :tahoe"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cakebrewjs.app"
-
-  end
-
-
   app "cakebrewjs.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cakebrewjs.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/cakebrewjs",

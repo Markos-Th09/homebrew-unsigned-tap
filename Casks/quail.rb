@@ -9,14 +9,10 @@ cask "quail" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quail.app"
-
-  end
-
-
   app "Quail.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quail.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Quail",

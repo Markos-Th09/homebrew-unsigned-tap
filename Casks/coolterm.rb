@@ -14,14 +14,10 @@ cask "coolterm" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CoolTerm.app"
-
-  end
-
-
   app "CoolTerm.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CoolTerm.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/CoolTerm_Prefs.plist",

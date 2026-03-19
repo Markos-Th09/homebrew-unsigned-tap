@@ -19,14 +19,10 @@ cask "playcover-community@beta" do
   depends_on arch: :arm64
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PlayCover.app"
-
-  end
-
-
   app "PlayCover.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PlayCover.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/io.playcover.PlayCover",

@@ -17,14 +17,10 @@ cask "vmpk" do
 
   depends_on formula: "fluid-synth"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/vmpk.app"
-
-  end
-
-
   app "vmpk.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/vmpk.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/net.sourceforge.vmpk.VMPK.plist",

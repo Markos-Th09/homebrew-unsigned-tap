@@ -15,14 +15,10 @@ cask "stretchly" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Stretchly.app"
-
-  end
-
-
   app "Stretchly.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Stretchly.app"
+  end
 
   uninstall quit: "net.hovancik.stretchly"
 

@@ -11,14 +11,10 @@ cask "welly" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Welly.app"
-
-  end
-
-
   app "Welly.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Welly.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Welly",

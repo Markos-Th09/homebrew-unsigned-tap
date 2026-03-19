@@ -43,14 +43,10 @@ cask "vlc@nightly" do
 
   conflicts_with cask: "vlc"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/VLC.app"
-
-  end
-
-
   app "VLC.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/VLC.app"
+  end
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/vlc.wrapper.sh"
   binary shimscript, target: "vlc"

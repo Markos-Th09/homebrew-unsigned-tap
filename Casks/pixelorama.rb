@@ -12,14 +12,10 @@ cask "pixelorama" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Pixelorama.app"
-
-  end
-
-
   app "Pixelorama.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Pixelorama.app"
+  end
 
   zap trash: "~/Library/Saved Application State/com.orama_interactive.pixelorama.savedState"
 end

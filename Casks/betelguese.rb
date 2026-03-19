@@ -9,14 +9,10 @@ cask "betelguese" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Betelguese.app"
-
-  end
-
-
   app "Betelguese.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Betelguese.app"
+  end
 
   zap trash: "~/Library/Saved Application State/com.23aaron.Betelgeuse.savedState"
 end

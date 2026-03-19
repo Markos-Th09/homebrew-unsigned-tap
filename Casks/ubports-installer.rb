@@ -21,14 +21,10 @@ cask "ubports-installer" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ubports-installer.app"
-
-  end
-
-
   app "ubports-installer.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ubports-installer.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/ubports-installer",

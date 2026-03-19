@@ -21,14 +21,10 @@ cask "servo" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Servo.app"
-
-  end
-
-
   app "Servo.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Servo.app"
+  end
 
   zap trash: "~/Library/Application Support/Servo"
 end

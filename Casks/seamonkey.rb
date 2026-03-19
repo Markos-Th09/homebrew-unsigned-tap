@@ -108,14 +108,10 @@ cask "seamonkey" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SeaMonkey.app"
-
-  end
-
-
   app "SeaMonkey.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SeaMonkey.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/SeaMonkey",

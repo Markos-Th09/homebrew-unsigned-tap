@@ -17,14 +17,10 @@ cask "mumble" do
 
   conflicts_with cask: "mumble@snapshot"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Mumble.app"
-
-  end
-
-
   app "Mumble.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Mumble.app"
+  end
 
   zap trash: [
     "/Library/ScriptingAdditions/MumbleOverlay.osax",

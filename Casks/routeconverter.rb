@@ -16,14 +16,10 @@ cask "routeconverter" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/RouteConverter.app"
-
-  end
-
-
   app "RouteConverter.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/RouteConverter.app"
+  end
 
   zap trash: "~/.routeconverter"
 

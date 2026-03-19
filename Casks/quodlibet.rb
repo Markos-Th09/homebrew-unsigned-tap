@@ -17,14 +17,10 @@ cask "quodlibet" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QuodLibet.app"
-
-  end
-
-
   app "QuodLibet.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QuodLibet.app"
+  end
 
   zap trash: [
     "~/.quodlibet",

@@ -23,14 +23,10 @@ cask "qlmarkdown" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QLMarkdown.app"
-
-  end
-
-
   app "QLMarkdown.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QLMarkdown.app"
+  end
   binary "#{appdir}/QLMarkdown.app/Contents/Resources/qlmarkdown_cli"
 
   zap trash: [

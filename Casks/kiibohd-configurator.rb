@@ -12,14 +12,10 @@ cask "kiibohd-configurator" do
 
   depends_on formula: "dfu-util"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Kiibohd Configurator.app"
-
-  end
-
-
   app "Kiibohd Configurator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Kiibohd Configurator.app"
+  end
 
   uninstall quit: "club.input.KiibohdConfigurator"
 

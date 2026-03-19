@@ -16,14 +16,10 @@ cask "orangedrangon-android-messages" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Android Messages.app"
-
-  end
-
-
   app "Android Messages.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Android Messages.app"
+  end
 
   zap trash: "~/Library/Application Support/android-messages-desktop"
 end

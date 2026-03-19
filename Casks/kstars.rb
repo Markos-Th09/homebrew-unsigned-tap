@@ -18,14 +18,10 @@ cask "kstars" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/kstars.app"
-
-  end
-
-
   app "kstars.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/kstars.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/kstars",

@@ -12,14 +12,10 @@ cask "syncterm" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SyncTERM.app"
-
-  end
-
-
   app "SyncTERM.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SyncTERM.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/SyncTERM",

@@ -17,14 +17,10 @@ cask "opencore-configurator" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenCore Configurator.app"
-
-  end
-
-
   app "OpenCore Configurator.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenCore Configurator.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.altervista.mackie100projects.opencore-configurator.sfl*",

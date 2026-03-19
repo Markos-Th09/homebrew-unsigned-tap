@@ -17,14 +17,10 @@ cask "angband-app" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Angband.app"
-
-  end
-
-
   app "Angband.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Angband.app"
+  end
 
   zap trash: [
     "~/Documents/Angband",

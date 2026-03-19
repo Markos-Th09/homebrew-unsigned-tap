@@ -29,14 +29,10 @@ cask "zoho-mail" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Zoho Mail - Desktop.app"
-
-  end
-
-
   app "Zoho Mail - Desktop.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Zoho Mail - Desktop.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Zoho Mail - Desktop",

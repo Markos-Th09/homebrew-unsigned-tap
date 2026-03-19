@@ -36,14 +36,10 @@ cask "drawpile" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Drawpile.app"
-
-  end
-
-
   app "Drawpile.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Drawpile.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/drawpile",

@@ -28,14 +28,10 @@ cask "sonarr" do
   auto_updates true
   conflicts_with cask: "sonarr@beta"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
-
-  end
-
-
   app "Sonarr.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
+  end
 
   zap trash: "~/.config/Sonarr"
 end

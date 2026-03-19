@@ -20,14 +20,10 @@ cask "write" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Write.app"
-
-  end
-
-
   app "Write.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Write.app"
+  end
 
   zap trash: [
     "~/.config/styluslabs",

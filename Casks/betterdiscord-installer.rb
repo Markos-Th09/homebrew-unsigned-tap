@@ -12,14 +12,10 @@ cask "betterdiscord-installer" do
 
   depends_on cask: "discord"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BetterDiscord.app"
-
-  end
-
-
   app "BetterDiscord.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BetterDiscord.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/BetterDiscord Installer",

@@ -16,14 +16,10 @@ cask "schism-tracker" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Schism Tracker.app"
-
-  end
-
-
   app "Schism Tracker.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Schism Tracker.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Schism Tracker",

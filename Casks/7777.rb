@@ -14,11 +14,10 @@ cask "7777" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  binary "7777"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/7777"
   end
-
-  binary "7777"
 
   # No zap stanza required
 

@@ -20,14 +20,10 @@ cask "fishing-funds" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Fishing Funds.app"
-
-  end
-
-
   app "Fishing Funds.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Fishing Funds.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Fishing Funds",

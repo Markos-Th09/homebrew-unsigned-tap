@@ -18,14 +18,10 @@ cask "multimc" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MultiMC.app"
-
-  end
-
-
   app "MultiMC.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MultiMC.app"
+  end
 
   zap trash: [
     "~/Library/Caches/MultiMC",

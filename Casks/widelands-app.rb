@@ -47,14 +47,10 @@ cask "widelands-app" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Widelands.app"
-
-  end
-
-
   app "Widelands.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Widelands.app"
+  end
 
   zap trash: "~/.widelands"
 end

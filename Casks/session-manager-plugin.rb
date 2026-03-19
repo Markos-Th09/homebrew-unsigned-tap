@@ -18,11 +18,11 @@ cask "session-manager-plugin" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  pkg "session-manager-plugin.pkg"
+  binary "/usr/local/sessionmanagerplugin/bin/session-manager-plugin"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/session-manager-plugin.pkg"
   end
-  pkg "session-manager-plugin.pkg"
-  binary "/usr/local/sessionmanagerplugin/bin/session-manager-plugin"
 
   uninstall pkgutil: "session-manager-plugin"
 

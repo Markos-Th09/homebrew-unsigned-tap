@@ -19,11 +19,11 @@ cask "qbittorrent@lt20" do
   depends_on macos: ">= :big_sur"
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
+
+  app "qbittorrent.app", target: "qBittorrent.app"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
   end
-
-  app "qbittorrent.app", target: "qBittorrent.app"
 
   zap trash: [
     "~/.config/qBittorrent",

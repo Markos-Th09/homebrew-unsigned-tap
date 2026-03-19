@@ -33,11 +33,11 @@ cask "forkgram-telegram" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   # Renamed to avoid conflict with telegram
+
+  app "Telegram.app", target: "Forkgram.app"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Telegram.app"
   end
-
-  app "Telegram.app", target: "Forkgram.app"
 
   zap trash: "~/Library/Application Support/Forkgram Desktop"
 end

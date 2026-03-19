@@ -18,10 +18,10 @@ cask "oso-cloud" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  binary "oso_cli_mac_osx_#{arch}", target: "oso-cloud"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/oso_cli_mac_osx_#{arch}"
   end
-  binary "oso_cli_mac_osx_#{arch}", target: "oso-cloud"
 
   zap trash: "~/.oso-update"
 end

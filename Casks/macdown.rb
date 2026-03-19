@@ -24,14 +24,10 @@ cask "macdown" do
   auto_updates true
   conflicts_with cask: "macdown-3000"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"
-
-  end
-
-
   app "MacDown.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"
+  end
   binary "#{appdir}/MacDown.app/Contents/SharedSupport/bin/macdown"
 
   zap trash: [

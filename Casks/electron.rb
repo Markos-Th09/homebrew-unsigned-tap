@@ -20,14 +20,10 @@ cask "electron" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Electron.app"
-
-  end
-
-
   app "Electron.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Electron.app"
+  end
   binary "#{appdir}/Electron.app/Contents/MacOS/Electron", target: "electron"
 
   zap trash: [

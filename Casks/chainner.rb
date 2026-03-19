@@ -17,14 +17,10 @@ cask "chainner" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/chaiNNer.app"
-
-  end
-
-
   app "chaiNNer.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/chaiNNer.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/chaiNNer",

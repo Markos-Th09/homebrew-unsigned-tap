@@ -10,14 +10,10 @@ cask "little-navmap" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Little Navconnect.app"
-
-  end
-
-
   app "Little Navconnect.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Little Navconnect.app"
+  end
   app "Little Navmap.app"
 
   zap trash: [

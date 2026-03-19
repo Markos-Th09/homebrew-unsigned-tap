@@ -16,14 +16,10 @@ cask "slimhud" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SlimHUD.app"
-
-  end
-
-
   app "SlimHUD.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SlimHUD.app"
+  end
 
   zap trash: "~/Library/Preferences/com.alexpera.SlimHUD.plist"
 end

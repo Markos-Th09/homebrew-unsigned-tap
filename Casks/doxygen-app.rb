@@ -19,14 +19,10 @@ cask "doxygen-app" do
 
   depends_on macos: ">= :sequoia"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Doxygen.app"
-
-  end
-
-
   app "Doxygen.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Doxygen.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/org.doxygen.Doxywizard.plist",

@@ -15,14 +15,10 @@ cask "toinane-colorpicker" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Colorpicker.app"
-
-  end
-
-
   app "Colorpicker.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Colorpicker.app"
+  end
 
   zap trash: "~/Library/Application Support/Colorpicker"
 end

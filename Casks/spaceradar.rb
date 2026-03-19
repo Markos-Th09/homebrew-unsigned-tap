@@ -10,11 +10,8 @@ cask "spaceradar" do
     depends_on macos: ">= :sonoma"
 
     postflight do
-
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Space Radar.app"
-
     end
-
 
     app "Space Radar.app"
   end

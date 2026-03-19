@@ -20,14 +20,10 @@ cask "stremioservice" do
   depends_on macos: ">= :big_sur"
   depends_on arch: :arm64
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/StremioService.app"
-
-  end
-
-
   app "StremioService.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/StremioService.app"
+  end
 
   uninstall launchctl: "com.stremio.service"
 

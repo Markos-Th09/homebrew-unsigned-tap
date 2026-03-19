@@ -18,14 +18,10 @@ cask "fedora-media-writer" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/FedoraMediaWriter.app"
-
-  end
-
-
   app "FedoraMediaWriter.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/FedoraMediaWriter.app"
+  end
 
   zap trash: [
     "~/Library/Caches/fedoraproject.org",

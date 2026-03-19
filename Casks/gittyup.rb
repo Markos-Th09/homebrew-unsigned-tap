@@ -34,14 +34,10 @@ cask "gittyup" do
   auto_updates true
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gittyup.app"
-
-  end
-
-
   app "Gittyup.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gittyup.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Gittyup",

@@ -17,11 +17,11 @@ cask "qutebrowser" do
 
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/qutebrowser.wrapper.sh"
+
+  app "qutebrowser.app"
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qutebrowser.app"
   end
-
-  app "qutebrowser.app"
   binary shimscript, target: "qutebrowser"
 
   preflight do

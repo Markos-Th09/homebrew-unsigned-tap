@@ -18,14 +18,10 @@ cask "gisto" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gisto.app"
-
-  end
-
-
   app "Gisto.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gisto.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Gisto",

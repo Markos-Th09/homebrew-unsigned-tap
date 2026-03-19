@@ -17,14 +17,10 @@ cask "bricksmith" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bricksmith.app"
-
-  end
-
-
   app "Bricksmith/Bricksmith.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bricksmith.app"
+  end
 
   zap trash: [
     "~/Library/HTTPStorages/com.AllenSmith.Bricksmith",

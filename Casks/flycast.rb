@@ -14,14 +14,10 @@ cask "flycast" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Flycast.app"
-
-  end
-
-
   app "Flycast.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Flycast.app"
+  end
 
   zap rmdir: [
     "/Library/Application Support/Flycast",

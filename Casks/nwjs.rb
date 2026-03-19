@@ -27,14 +27,10 @@ cask "nwjs" do
 
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/nwjs.app"
-
-  end
-
-
   app "nwjs-sdk-v#{version}-osx-#{arch}/nwjs.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/nwjs.app"
+  end
   binary "nwjs-sdk-v#{version}-osx-#{arch}/nwjc"
 
   zap trash: [

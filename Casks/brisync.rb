@@ -11,14 +11,10 @@ cask "brisync" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Brisync.app"
-
-  end
-
-
   app "Brisync.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Brisync.app"
+  end
 
   zap trash: "~/.brisync.json"
 end

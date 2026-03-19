@@ -14,14 +14,10 @@ cask "checkra1n" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/checkra1n.app"
-
-  end
-
-
   app "checkra1n.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/checkra1n.app"
+  end
   binary "#{appdir}/checkra1n.app/Contents/MacOS/checkra1n"
 
   # No zap stanza required

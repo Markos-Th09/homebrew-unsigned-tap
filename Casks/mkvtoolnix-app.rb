@@ -16,14 +16,10 @@ cask "mkvtoolnix-app" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MKVToolNix-#{version}.app"
-
-  end
-
-
   app "MKVToolNix-#{version}.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MKVToolNix-#{version}.app"
+  end
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvextract"
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvinfo"
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvmerge"

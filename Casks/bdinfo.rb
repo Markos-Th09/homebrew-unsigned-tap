@@ -15,14 +15,10 @@ cask "bdinfo" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BDInfo OSX.app"
-
-  end
-
-
   app "BDInfo OSX.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BDInfo OSX.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/com.yourcompany.BDInfo-OSX.plist",

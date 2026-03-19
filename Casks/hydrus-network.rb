@@ -20,14 +20,10 @@ cask "hydrus-network" do
   deprecate! date: "2025-09-03", because: :discontinued
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hydrus Network.app"
-
-  end
-
-
   app "Hydrus Network.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hydrus Network.app"
+  end
 
   zap trash: "~/Library/Hydrus"
 

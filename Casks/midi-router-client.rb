@@ -16,14 +16,10 @@ cask "midi-router-client" do
 
   depends_on macos: ">= :tahoe"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/midi-router-client.app"
-
-  end
-
-
   app "midi-router-client.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/midi-router-client.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Midi router client",

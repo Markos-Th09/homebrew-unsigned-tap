@@ -22,14 +22,10 @@ cask "v2rayu" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/V2rayU.app"
-
-  end
-
-
   app "V2rayU.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/V2rayU.app"
+  end
 
   uninstall launchctl: [
     "yanue.v2rayu.http",

@@ -16,14 +16,10 @@ cask "ckan-app" do
 
   depends_on cask: "mono-mdk"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CKAN.app"
-
-  end
-
-
   app "CKAN.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CKAN.app"
+  end
 
   zap trash: "~/.local/share/CKAN"
 end

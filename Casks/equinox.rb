@@ -10,14 +10,10 @@ cask "equinox" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Equinox.app"
-
-  end
-
-
   app "Equinox.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Equinox.app"
+  end
 
   zap trash: [
     "~/Library/Application Scripts/com.rlxone.equinox",

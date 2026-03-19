@@ -25,14 +25,10 @@ cask "fontforge-app" do
 
   depends_on macos: ">= :ventura"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/FontForge.app"
-
-  end
-
-
   app "FontForge.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/FontForge.app"
+  end
 
   zap trash: "~/.cache/fontforge"
 

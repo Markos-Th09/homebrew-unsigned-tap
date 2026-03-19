@@ -11,14 +11,10 @@ cask "bilimini" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/bilimini.app"
-
-  end
-
-
   app "bilimini.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/bilimini.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/bilimini",

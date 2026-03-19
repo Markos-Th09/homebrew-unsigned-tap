@@ -16,14 +16,10 @@ cask "brisk" do
 
   auto_updates true
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Brisk.app"
-
-  end
-
-
   app "Brisk.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Brisk.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/Blisk",

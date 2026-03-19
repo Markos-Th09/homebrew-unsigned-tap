@@ -20,14 +20,10 @@ cask "nagstamon" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nagstamon.app"
-
-  end
-
-
   app "Nagstamon.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nagstamon.app"
+  end
 
   zap trash: "~/.nagstamon"
 end

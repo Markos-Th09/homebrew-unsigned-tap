@@ -18,14 +18,10 @@ cask "encryptme" do
   auto_updates true
   depends_on macos: ">= :monterey"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/EncryptMe.app"
-
-  end
-
-
   app "EncryptMe.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/EncryptMe.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/com.bourgeoisbits.cloak.agent",

@@ -15,14 +15,10 @@ cask "scihubeva" do
   auto_updates true
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sci-Hub EVA.app"
-
-  end
-
-
   app "Sci-Hub EVA.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sci-Hub EVA.app"
+  end
 
   zap trash: [
     "~/Library/Caches/tech.leovan.SciHubEVA",

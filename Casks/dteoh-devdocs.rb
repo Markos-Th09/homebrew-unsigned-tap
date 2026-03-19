@@ -11,14 +11,10 @@ cask "dteoh-devdocs" do
 
   depends_on macos: ">= :big_sur"
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DevDocs.app"
-
-  end
-
-
   app "DevDocs.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DevDocs.app"
+  end
 
   zap trash: [
     "~/Library/Caches/com.dteoh.devdocs-macos",

@@ -20,14 +20,10 @@ cask "ubiquiti-unifi-controller" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UniFi.app"
-
-  end
-
-
   app "UniFi.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UniFi.app"
+  end
 
   uninstall signal: ["TERM", "com.ubnt.UniFi"]
 

@@ -12,14 +12,10 @@ cask "ariang" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/AriaNg Native.app"
-
-  end
-
-
   app "AriaNg Native.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/AriaNg Native.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/net.mayswind.ariang.plist",

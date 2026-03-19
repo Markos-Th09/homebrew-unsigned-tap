@@ -9,14 +9,10 @@ cask "cpuinfo" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cpuinfo.app"
-
-  end
-
-
   app "cpuinfo.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cpuinfo.app"
+  end
 
   zap trash: [
     "~/Library/Application Scripts/io.fata.shibata.cpuinfo",

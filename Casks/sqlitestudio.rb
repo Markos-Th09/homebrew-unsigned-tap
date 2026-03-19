@@ -10,14 +10,10 @@ cask "sqlitestudio" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SQLiteStudio.app"
-
-  end
-
-
   app "SQLiteStudio.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SQLiteStudio.app"
+  end
 
   zap trash: [
     "~/.config/sqlitestudio",

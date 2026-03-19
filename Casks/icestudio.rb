@@ -36,14 +36,10 @@ cask "icestudio" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/icestudio.app"
-
-  end
-
-
   app "icestudio.app"
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/icestudio.app"
+  end
 
   zap trash: [
     "~/.icestudio",
