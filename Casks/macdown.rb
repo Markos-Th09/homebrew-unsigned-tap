@@ -28,6 +28,7 @@ cask "macdown" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"
   end
+
   binary "#{appdir}/MacDown.app/Contents/SharedSupport/bin/macdown"
 
   zap trash: [

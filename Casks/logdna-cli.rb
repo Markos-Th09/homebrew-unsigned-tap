@@ -13,6 +13,7 @@ cask "logdna-cli" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/logdna-cli.pkg"
   end
+
   pkg "logdna-cli.pkg"
 
   uninstall pkgutil: "com.logdna.logdna-cli"

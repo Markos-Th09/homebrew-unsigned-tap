@@ -10,6 +10,7 @@ cask "bison-wallet" do
       strategy :github_latest
     end
   end
+
   on_intel do
     version "1.0.4"
     sha256 "889d54f752c96e6a079db29b66d14d8b8e4a5577c91d1b3d499c4e781f75554e"

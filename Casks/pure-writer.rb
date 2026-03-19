@@ -26,6 +26,7 @@ cask "pure-writer" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Pure Writer-#{version.csv.second}.pkg"
   end
+
   pkg "Pure Writer-#{version.csv.second}.pkg"
 
   uninstall pkgutil: "com.drakeet.purewriter"

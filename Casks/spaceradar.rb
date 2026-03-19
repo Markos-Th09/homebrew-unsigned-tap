@@ -15,6 +15,7 @@ cask "spaceradar" do
 
     app "Space Radar.app"
   end
+
   on_intel do
     version "6.0.0"
     sha256 "2ecc3b510ff214b25bc3791ea84b4192b0b3839d03e69ae716aaecdcc4d40eda"
@@ -48,6 +49,7 @@ cask "spaceradar" do
 
             release["tag_name"]&.tr("v", "")
           end
+
         end.flatten
       end
   end

@@ -19,6 +19,7 @@ cask "lego-mindstorms-ev3" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/LEGO MINDSTORMS EV3 Home Edition.pkg"
   end
+
   pkg "LEGO MINDSTORMS EV3 Home Edition.pkg"
 
   uninstall pkgutil: [

@@ -25,6 +25,7 @@ cask "salesforce-cli" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
   end
+
   pkg "sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
 
   uninstall pkgutil: "com.salesforce.cli",

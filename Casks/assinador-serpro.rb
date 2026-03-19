@@ -17,6 +17,7 @@ cask "assinador-serpro" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/AssinadorSerpro-#{version}.pkg"
   end
+
   pkg "AssinadorSerpro-#{version}.pkg"
 
   uninstall pkgutil: "br.gov.serpro.desktop.assinador"

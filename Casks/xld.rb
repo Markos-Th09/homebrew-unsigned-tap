@@ -22,6 +22,7 @@ cask "xld" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XLD.app"
   end
+
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/xld.wrapper.sh"
   binary shimscript, target: "xld"

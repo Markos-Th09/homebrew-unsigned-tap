@@ -41,6 +41,7 @@ cask "keepassxc@snapshot" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KeePassXC.app"
   end
+
   binary "#{appdir}/KeePassXC.app/Contents/MacOS/keepassxc-cli"
 
   uninstall quit: "org.keepassxc.keepassxc"

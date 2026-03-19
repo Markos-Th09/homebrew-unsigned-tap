@@ -21,6 +21,7 @@ cask "obs-advanced-scene-switcher" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/advanced-scene-switcher-#{version}-macos-universal.pkg"
   end
+
   pkg "advanced-scene-switcher-#{version}-macos-universal.pkg"
 
   uninstall pkgutil: [

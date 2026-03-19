@@ -10,6 +10,7 @@ cask "candybar" do
       skip "Legacy version"
     end
   end
+
   on_big_sur :or_newer do
     version "3.5"
     sha256 :no_check

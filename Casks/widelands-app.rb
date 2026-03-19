@@ -8,18 +8,21 @@ cask "widelands-app" do
 
         sha256 "a6eaff7b271b0d046e779f976f0d8aa037886d645b4fd64c939a9f979651cca9"
       end
+
       on_sonoma do
         arch arm: "14_arm64"
 
         sha256 "e3ae23a9415645c0321e86a64be1666102c524d2e970155979c61aac9aac2845"
       end
     end
+
     on_intel do
       arch intel: "12_x86"
 
       sha256 "9370b6771f2ca9140b77c7c38b59bcda3bd3602d6d90ba0a5d6237185a768fa7"
     end
   end
+
   on_sequoia :or_newer do
     arch arm: "15_arm64", intel: "15_x86"
 

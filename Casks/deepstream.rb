@@ -13,6 +13,7 @@ cask "deepstream" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/deepstream.io-mac-#{version}.pkg"
   end
+
   pkg "deepstream.io-mac-#{version}.pkg"
 
   uninstall pkgutil: "deepstream.io"

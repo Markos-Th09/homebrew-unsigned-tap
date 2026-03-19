@@ -36,6 +36,7 @@ cask "powershell@preview" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/powershell-#{version}-osx-#{arch}.pkg"
   end
+
   pkg "powershell-#{version}-osx-#{arch}.pkg"
 
   uninstall pkgutil: "com.microsoft.powershell-preview",

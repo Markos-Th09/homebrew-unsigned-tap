@@ -20,6 +20,7 @@ cask "makemkv" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MakeMKV.app"
   end
+
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/makemkvcon"
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/mmccextr"
   binary "#{appdir}/MakeMKV.app/Contents/MacOS/mmgplsrv"

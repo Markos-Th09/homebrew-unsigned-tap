@@ -8,6 +8,7 @@ cask "lidarr" do
   on_arm do
     depends_on macos: ">= :big_sur"
   end
+
   on_intel do
     depends_on macos: ">= :catalina"
   end

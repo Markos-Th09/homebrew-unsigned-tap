@@ -15,6 +15,7 @@ cask "corelocationcli" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CoreLocationCLI.app"
   end
+
   binary "#{appdir}/CoreLocationCLI.app/Contents/MacOS/CoreLocationCLI"
 
   # no zap stanza required

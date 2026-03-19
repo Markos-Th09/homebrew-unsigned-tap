@@ -5,6 +5,7 @@ cask "wings3d" do
     version "2.4.1"
     sha256 "95b301f81166c2fe2f90b4299045f57264731ec6f2ee8e24e3d31fa143430fd8"
   end
+
   on_intel do
     version "2.3"
     sha256 "dbb1bbb229c3a3737fc2558d7a64996780dada3da3c75e46bc357789dde8092a"

@@ -14,6 +14,7 @@ cask "love" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/love.app"
   end
+
   binary "#{appdir}/love.app/Contents/MacOS/love"
 
   zap trash: "~/Library/Saved Application State/org.love2d.love.savedState"

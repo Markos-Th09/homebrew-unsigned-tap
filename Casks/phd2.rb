@@ -11,6 +11,7 @@ cask "phd2" do
       regex(/href=.*?PHD2[._-]v?(\d+(?:\.\d+)+)-OSX-64\.zip/i)
     end
   end
+
   on_sonoma :or_newer do
     sha256 "11f324ea4154508419f14215605972278c2adef6f91634f03e36aa8c2e92aa56"
 

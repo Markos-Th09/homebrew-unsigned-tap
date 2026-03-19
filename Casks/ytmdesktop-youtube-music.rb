@@ -26,6 +26,7 @@ cask "ytmdesktop-youtube-music" do
 
           match[1]
         end
+
       end.flatten
     end
   end

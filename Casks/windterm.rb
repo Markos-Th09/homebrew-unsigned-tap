@@ -28,6 +28,7 @@ cask "windterm" do
 
           (match[1] == tag_version) ? tag_version : "#{match[1]},#{tag_version}"
         end
+
       end.flatten
     end
   end

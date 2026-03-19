@@ -13,6 +13,7 @@ cask "mater" do
 
     app "Mater.app"
   end
+
   on_intel do
     version "1.0.10"
     sha256 "613dba1cd8ca8dee74b30a456d3d2cb87896020b5305d6ff25f5f324499c4ee7"

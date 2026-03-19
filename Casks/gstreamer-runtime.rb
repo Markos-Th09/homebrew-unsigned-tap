@@ -17,6 +17,7 @@ cask "gstreamer-runtime" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/gstreamer-1.0-#{version}-universal.pkg"
   end
+
   pkg "gstreamer-1.0-#{version}-universal.pkg"
 
   uninstall pkgutil: [

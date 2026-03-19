@@ -22,6 +22,7 @@ cask "qutebrowser" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qutebrowser.app"
   end
+
   binary shimscript, target: "qutebrowser"
 
   preflight do

@@ -5,6 +5,7 @@ cask "texworks" do
     version "0.6.10,202502131353,7380941"
     sha256 "813964827bbea219f7f05d7a03c76260162010bebc70746ccce60c77a3537b24"
   end
+
   on_intel do
     version "0.6.11,202602100758,7951fd8"
     sha256 "8d8989c202508ba964681293c15cffd0388429a14f6e828b391cf252db5a40d3"
@@ -31,6 +32,7 @@ cask "texworks" do
 
           "#{match[1]},#{match[2]},#{match[3]}"
         end
+
       end.flatten
     end
   end

@@ -18,6 +18,7 @@ cask "smlnj" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/smlnj-amd64-#{version}.pkg"
   end
+
   pkg "smlnj-amd64-#{version}.pkg"
 
   uninstall pkgutil: "org.smlnj.amd64.pkg"

@@ -21,6 +21,7 @@ cask "fpc-laz" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
   end
+
   pkg "fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
 
   uninstall pkgutil: [

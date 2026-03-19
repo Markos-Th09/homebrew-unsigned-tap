@@ -23,6 +23,7 @@ cask "duckietv" do
 
           match[1]
         end
+
       end.flatten
     end
   end
@@ -32,6 +33,7 @@ cask "duckietv" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/DuckieTV-#{version}-OSX-x64.pkg"
   end
+
   pkg "DuckieTV-#{version}-OSX-x64.pkg"
 
   uninstall pkgutil: "tv.duckie.base.pkg",

@@ -26,6 +26,7 @@ cask "librecad" do
 
           (match[1] == tag) ? tag : "#{tag},#{match[1]}"
         end
+
       end.flatten
     end
   end

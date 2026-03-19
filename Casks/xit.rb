@@ -19,6 +19,7 @@ cask "xit" do
       requires_rosetta
     end
   end
+
   on_monterey :or_newer do
     arch arm: "-arm"
 

@@ -20,6 +20,7 @@ cask "yggdrasil" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/yggdrasil-#{version}-macos-#{arch}.pkg"
   end
+
   pkg "yggdrasil-#{version}-macos-#{arch}.pkg"
 
   uninstall launchctl: "yggdrasil",

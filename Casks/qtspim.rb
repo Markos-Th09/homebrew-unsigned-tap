@@ -17,6 +17,7 @@ cask "qtspim" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QtSpim.mpkg/Contents/Packages/QtSpim.pkg"
   end
+
   pkg "QtSpim.mpkg/Contents/Packages/QtSpim.pkg"
 
   uninstall pkgutil: "org.larusstone.pkg.QtSpim"

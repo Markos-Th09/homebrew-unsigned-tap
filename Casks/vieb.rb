@@ -19,6 +19,7 @@ cask "vieb" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vieb.app"
   end
+
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/vieb.wrapper.sh"
   binary shimscript, target: "vieb"

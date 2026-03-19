@@ -25,6 +25,7 @@ cask "openmw" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenMW.app"
   end
+
   app "OpenMW-CS.app"
 
   zap trash: [

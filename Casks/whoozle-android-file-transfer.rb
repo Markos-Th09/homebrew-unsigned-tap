@@ -14,6 +14,7 @@ cask "whoozle-android-file-transfer" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Android File Transfer for Linux.app"
   end
+
   binary "#{appdir}/Android File Transfer for Linux.app/Contents/SharedSupport/bin/aft-mtp-cli"
   binary "#{appdir}/Android File Transfer for Linux.app/Contents/SharedSupport/bin/aft-mtp-mount"
 

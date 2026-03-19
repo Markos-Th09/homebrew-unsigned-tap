@@ -6,6 +6,7 @@ cask "vlc@nightly" do
     version "4.0.0,20260319-0415,cf515e41"
     sha256 "5d2b944e3323bc299816e2f5766a177a4788ec1d184781f24d656aecaeb1d61a"
   end
+
   on_intel do
     version "4.0.0,20260319-0412,cf515e41"
     sha256 "25c9fbca240e9a1d1153a3c95f2c04419c4d1f94631613a52eac6b8a36a85577"
@@ -47,6 +48,7 @@ cask "vlc@nightly" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/VLC.app"
   end
+
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/vlc.wrapper.sh"
   binary shimscript, target: "vlc"

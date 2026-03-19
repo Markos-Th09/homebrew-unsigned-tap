@@ -21,6 +21,7 @@ cask "digikam" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/digiKam-#{version}-#{arch}.pkg"
   end
+
   pkg "digiKam-#{version}-#{arch}.pkg"
 
   uninstall pkgutil: [

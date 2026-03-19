@@ -18,6 +18,7 @@ cask "dmenu-mac" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dmenu-mac.app"
   end
+
   binary "#{appdir}/dmenu-mac.app/Contents/Resources/dmenu-mac"
 
   zap trash: [

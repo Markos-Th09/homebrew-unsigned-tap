@@ -39,8 +39,10 @@ cask "turtl" do
           else
             match[1]
           end
+
           break
         end
+
         break if version
       end
 

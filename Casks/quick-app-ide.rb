@@ -18,6 +18,7 @@ cask "quick-app-ide" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/quickapp-ide-#{version}.pkg"
   end
+
   pkg "quickapp-ide-#{version}.pkg"
 
   uninstall quit:    "cn.quickapp.ide",

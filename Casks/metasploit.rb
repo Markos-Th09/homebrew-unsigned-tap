@@ -27,6 +27,7 @@ cask "metasploit" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
   end
+
   binary "/opt/metasploit-framework/bin/msfconsole"
   binary "/opt/metasploit-framework/bin/msfd"
   binary "/opt/metasploit-framework/bin/msfdb"

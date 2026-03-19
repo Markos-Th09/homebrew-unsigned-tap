@@ -16,6 +16,7 @@ cask "ghdl" do
       requires_rosetta
     end
   end
+
   on_sonoma :or_newer do
     arch arm: "aarch64", intel: "x86_64"
 
@@ -27,6 +28,7 @@ cask "ghdl" do
 
         sha256 "9cb3ccc09ca95f37c88bb757b3da7415ce5efede51e136e0262c74f3f99c2245"
       end
+
       on_sequoia :or_newer do
         macos_version = 15
 
@@ -38,6 +40,7 @@ cask "ghdl" do
         strategy :github_latest
       end
     end
+
     on_intel do
       macos_version = 13
 
@@ -67,6 +70,7 @@ cask "ghdl" do
     postflight do
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/#{directory}/bin/#{bin}"
     end
+
     binary "#{directory}/bin/#{bin}"
   end
 

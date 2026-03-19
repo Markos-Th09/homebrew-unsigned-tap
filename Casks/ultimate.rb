@@ -17,6 +17,7 @@ cask "ultimate" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Ultimate.pkg"
   end
+
   pkg "Ultimate.pkg"
 
   uninstall pkgutil: "EpuborStudioUltimate2"

@@ -17,6 +17,7 @@ cask "zenmap" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/nmap-#{version}.mpkg"
   end
+
   pkg "nmap-#{version}.mpkg"
 
   uninstall pkgutil: [

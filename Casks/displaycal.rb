@@ -20,6 +20,7 @@ cask "displaycal" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/DisplayCAL-#{version}.pkg"
   end
+
   pkg "DisplayCAL-#{version}.pkg"
 
   uninstall pkgutil: "net.displaycal.*.DisplayCAL.*"

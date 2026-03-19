@@ -43,6 +43,7 @@ cask "wine@staging" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Staging.app"
   end
+
   dir_path = "#{appdir}/Wine Staging.app/Contents/Resources"
   binary "#{dir_path}/start/bin/appdb"
   binary "#{dir_path}/start/bin/winehelp"

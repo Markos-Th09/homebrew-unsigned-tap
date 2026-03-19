@@ -43,6 +43,7 @@ cask "wine-stable" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
   end
+
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/appdb"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/winehelp"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/msidb"

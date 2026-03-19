@@ -18,6 +18,7 @@ cask "cinco" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Install Cinco.pkg"
   end
+
   pkg "Install Cinco.pkg"
 
   uninstall quit:    "de.jabc.cinco.meta.product.product",

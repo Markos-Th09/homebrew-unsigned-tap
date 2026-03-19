@@ -8,6 +8,7 @@ cask "darktable" do
   on_arm do
     depends_on macos: ">= :sonoma"
   end
+
   on_intel do
     depends_on macos: ">= :sequoia"
   end

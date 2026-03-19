@@ -21,6 +21,7 @@ cask "kvirc" do
 
           "#{match[1]},#{match[2]}"
         end
+
       end.flatten
     end
   end

@@ -10,6 +10,7 @@ cask "codelite" do
         skip "Legacy version"
       end
     end
+
     on_ventura do
       arch arm: "arm64"
 
@@ -20,6 +21,7 @@ cask "codelite" do
         skip "Legacy version"
       end
     end
+
     on_sonoma do
       arch arm: "macOS_14.7.2-arm64"
 
@@ -30,6 +32,7 @@ cask "codelite" do
         skip "Legacy version"
       end
     end
+
     on_sequoia :or_newer do
       arch arm: "macOS_26.1-arm64"
 
@@ -48,6 +51,7 @@ cask "codelite" do
       end
     end
   end
+
   on_intel do
     arch intel: "x86_64"
 

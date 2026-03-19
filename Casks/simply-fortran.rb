@@ -9,6 +9,7 @@ cask "simply-fortran" do
       requires_rosetta
     end
   end
+
   on_monterey :or_newer do
     on_ventura :or_older do
       arch arm: "x86_64", intel: "x86_64"
@@ -21,6 +22,7 @@ cask "simply-fortran" do
       end
     end
   end
+
   on_sonoma :or_newer do
     arch arm: "arm64", intel: "x86_64"
 

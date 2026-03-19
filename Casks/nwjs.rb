@@ -31,6 +31,7 @@ cask "nwjs" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/nwjs.app"
   end
+
   binary "nwjs-sdk-v#{version}-osx-#{arch}/nwjc"
 
   zap trash: [

@@ -19,6 +19,7 @@ cask "lyx" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"
   end
+
   binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
   binary "#{appdir}/LyX.app/Contents/MacOS/lyx"
   binary "#{appdir}/LyX.app/Contents/MacOS/lyxclient"

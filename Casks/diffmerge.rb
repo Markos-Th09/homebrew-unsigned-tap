@@ -18,6 +18,7 @@ cask "diffmerge" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DiffMerge.app"
   end
+
   binary "Extras/diffmerge.sh", target: "diffmerge"
   manpage "Extras/diffmerge.1"
 

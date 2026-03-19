@@ -20,6 +20,7 @@ cask "pololu-avr-programmer-v2" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/pololu-usb-avr-programmer-v2-#{version.csv.second}-macos.pkg"
   end
+
   pkg "pololu-usb-avr-programmer-v2-#{version.csv.second}-macos.pkg"
 
   uninstall pkgutil: [

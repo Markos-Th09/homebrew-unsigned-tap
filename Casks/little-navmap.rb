@@ -14,6 +14,7 @@ cask "little-navmap" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Little Navconnect.app"
   end
+
   app "Little Navmap.app"
 
   zap trash: [

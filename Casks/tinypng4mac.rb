@@ -15,6 +15,7 @@ cask "tinypng4mac" do
 
     app "TinyPNG4Mac.app"
   end
+
   on_ventura :or_newer do
     version "2.2.1,20201"
     sha256 "d1ce60d76bf178221f0ab81051886b8adcb0856e654a2335a514b8b68a0c5b9c"

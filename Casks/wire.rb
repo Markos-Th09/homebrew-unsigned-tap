@@ -30,6 +30,7 @@ cask "wire" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Wire.pkg"
   end
+
   pkg "Wire.pkg"
 
   uninstall signal:  [

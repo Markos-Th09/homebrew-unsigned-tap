@@ -7,6 +7,7 @@ cask "volt-app" do
     url "https://github.com/voltapp/volt/releases/download/#{version}/volt_macos_arm64.zip",
         verified: "github.com/voltapp/volt/"
   end
+
   on_intel do
     sha256 "7a52cb3dd08b82f4ae48777fa6625bc79c798a91714cbc0a5c0c1ab069c746bc"
 

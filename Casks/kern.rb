@@ -17,6 +17,7 @@ cask "kern" do
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/kern_#{version.dots_to_underscores}_mac.pkg"
   end
+
   pkg "kern_#{version.dots_to_underscores}_mac.pkg"
 
   uninstall pkgutil: [
