@@ -7,7 +7,6 @@ cask "polyphone" do
 
     macos_version = "_MacOS_10.13"
   end
-
   on_monterey :or_newer do
     version "2.5.1,129"
     sha256 "89a60fc2444a4502719d23f2d5404a1fa9677db64ef09267ebced0eddf77a0dc"
@@ -33,6 +32,7 @@ cask "polyphone" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "polyphone.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/polyphone.app"
   end

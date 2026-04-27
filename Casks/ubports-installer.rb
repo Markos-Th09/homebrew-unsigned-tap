@@ -22,6 +22,7 @@ cask "ubports-installer" do
   depends_on macos: ">= :big_sur"
 
   app "ubports-installer.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ubports-installer.app"
   end

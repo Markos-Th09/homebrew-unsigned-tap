@@ -7,13 +7,13 @@ cask "quicklook-json" do
   desc "Quick Look plugin for JSON files"
   homepage "http://www.sagtau.com/quicklookjson.html"
 
+  qlplugin "QuickLookJSON.qlgenerator"
+
   # Upstream disable! date: "2025-12-23", because: :no_longer_meets_criteria
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QuickLookJSON.qlgenerator"
   end
-
-  qlplugin "QuickLookJSON.qlgenerator"
 
   # No zap stanza required
 end

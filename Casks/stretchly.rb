@@ -16,6 +16,7 @@ cask "stretchly" do
   depends_on macos: ">= :monterey"
 
   app "Stretchly.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Stretchly.app"
   end

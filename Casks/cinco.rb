@@ -13,13 +13,13 @@ cask "cinco" do
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  pkg "Install Cinco.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Install Cinco.pkg"
   end
-
-  pkg "Install Cinco.pkg"
 
   uninstall quit:    "de.jabc.cinco.meta.product.product",
             pkgutil: "de.jabc.cinco.meta.product.product.cinco.pkg.component"

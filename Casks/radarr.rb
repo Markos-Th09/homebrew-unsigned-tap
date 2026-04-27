@@ -24,6 +24,7 @@ cask "radarr" do
   depends_on macos: ">= :big_sur"
 
   app "Radarr.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Radarr.app"
   end

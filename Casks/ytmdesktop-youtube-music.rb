@@ -26,7 +26,6 @@ cask "ytmdesktop-youtube-music" do
 
           match[1]
         end
-
       end.flatten
     end
   end
@@ -36,6 +35,7 @@ cask "ytmdesktop-youtube-music" do
   depends_on macos: ">= :monterey"
 
   app "YouTube Music Desktop App.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouTube Music Desktop App.app"
   end

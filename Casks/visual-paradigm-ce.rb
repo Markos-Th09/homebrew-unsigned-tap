@@ -28,6 +28,7 @@ cask "visual-paradigm-ce" do
   # Renamed to avoid conflict with visual-paradigm.
 
   app "Visual Paradigm.app", target: "Visual Paradigm CE.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Visual Paradigm.app"
   end

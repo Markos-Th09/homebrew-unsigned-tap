@@ -22,19 +22,19 @@ cask "alex313031-thorium" do
   depends_on macos: ">= :big_sur"
 
   app "Thorium.app", target: "Thorium Browser.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium.app"
-  end
+  binary shimscript, target: "thorium"
 
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/thorium.wrapper.sh"
-  binary shimscript, target: "thorium"
-
   preflight do
     File.write shimscript, <<~EOS
       #!/bin/bash
       exec '#{appdir}/Thorium Browser.app/Contents/MacOS/Thorium' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium.app"
   end
 
   zap trash: [

@@ -12,6 +12,7 @@ cask "amitv87-pip" do
   depends_on macos: ">= :big_sur"
 
   app "PiP.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PiP.app"
   end

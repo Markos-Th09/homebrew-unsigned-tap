@@ -20,6 +20,7 @@ cask "webots" do
   auto_updates true
 
   app "Webots.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Webots.app"
   end

@@ -17,6 +17,7 @@ cask "cakebrewjs" do
   depends_on macos: ">= :tahoe"
 
   app "cakebrewjs.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cakebrewjs.app"
   end

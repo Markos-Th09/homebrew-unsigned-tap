@@ -10,7 +10,6 @@ cask "candybar" do
       skip "Legacy version"
     end
   end
-
   on_big_sur :or_newer do
     version "3.5"
     sha256 :no_check
@@ -31,6 +30,7 @@ cask "candybar" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "CandyBar.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CandyBar.app"
   end

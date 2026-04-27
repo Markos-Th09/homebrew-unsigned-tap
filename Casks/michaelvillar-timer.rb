@@ -12,6 +12,7 @@ cask "michaelvillar-timer" do
   depends_on macos: ">= :sonoma"
 
   app "Timer.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Timer.app"
   end

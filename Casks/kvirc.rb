@@ -21,7 +21,6 @@ cask "kvirc" do
 
           "#{match[1]},#{match[2]}"
         end
-
       end.flatten
     end
   end
@@ -32,6 +31,7 @@ cask "kvirc" do
   depends_on macos: ">= :sonoma"
 
   app "KVIrc.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KVIrc.app"
   end

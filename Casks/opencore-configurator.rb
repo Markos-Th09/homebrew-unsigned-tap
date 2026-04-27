@@ -18,6 +18,7 @@ cask "opencore-configurator" do
   auto_updates true
 
   app "OpenCore Configurator.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenCore Configurator.app"
   end

@@ -12,13 +12,13 @@ cask "ultimate" do
     regex(/Version:\s*v?(\d+(?:\.\d+)+).*?#os_Mac/i)
   end
 
+  pkg "Ultimate.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Ultimate.pkg"
   end
-
-  pkg "Ultimate.pkg"
 
   uninstall pkgutil: "EpuborStudioUltimate2"
 

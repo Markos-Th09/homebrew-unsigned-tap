@@ -25,6 +25,7 @@ cask "gdat" do
   container nested: "macOS 64 bit/Genealogical DNA Analysis Tool.app.tar"
 
   app "Genealogical DNA Analysis Tool.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Genealogical DNA Analysis Tool.app"
   end

@@ -17,6 +17,7 @@ cask "orangedrangon-android-messages" do
   depends_on macos: ">= :big_sur"
 
   app "Android Messages.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Android Messages.app"
   end

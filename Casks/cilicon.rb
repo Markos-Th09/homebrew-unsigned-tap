@@ -26,6 +26,7 @@ cask "cilicon" do
   depends_on arch: :arm64
 
   app "Cilicon.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Cilicon.app"
   end

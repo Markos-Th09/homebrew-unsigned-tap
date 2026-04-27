@@ -15,6 +15,7 @@ cask "listen1" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Listen1.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Listen1.app"
   end

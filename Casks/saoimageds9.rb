@@ -10,7 +10,6 @@ cask "saoimageds9" do
     url "https://ds9.si.edu/download/macosbigsur#{arch}/SAOImageDS9%20#{version}.dmg",
         verified: "ds9.si.edu/download/"
   end
-
   on_monterey do
     version "8.7"
     sha256 arm:   "f582d22a632de2b1ec60f164daa42905ad201d4681a2e933b7c03722b2fbd001",
@@ -19,7 +18,6 @@ cask "saoimageds9" do
     url "https://ds9.si.edu/download/macosmonterey#{arch}/SAOImageDS9%20#{version}.dmg",
         verified: "ds9.si.edu/download/"
   end
-
   on_ventura :or_newer do
     version "8.7"
     sha256 arm:   "a95299fa3c3630b98effe0be869b7c5981f6871c61e50aebe2d872490aab4f16",
@@ -43,6 +41,7 @@ cask "saoimageds9" do
   depends_on macos: ">= :big_sur"
 
   app "SAOImageDS9.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SAOImageDS9.app"
   end

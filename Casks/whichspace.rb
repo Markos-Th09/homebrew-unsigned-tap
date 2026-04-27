@@ -18,6 +18,7 @@ cask "whichspace" do
   depends_on macos: ">= :sonoma"
 
   app "WhichSpace.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WhichSpace.app"
   end

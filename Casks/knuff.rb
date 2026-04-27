@@ -17,6 +17,7 @@ cask "knuff" do
   auto_updates true
 
   app "Knuff.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Knuff.app"
   end

@@ -13,6 +13,7 @@ cask "iina+" do
   depends_on macos: ">= :ventura"
 
   app "IINA+.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/IINA+.app"
   end

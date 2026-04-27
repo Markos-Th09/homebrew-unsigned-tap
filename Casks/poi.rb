@@ -16,6 +16,7 @@ cask "poi" do
   depends_on macos: ">= :monterey"
 
   app "poi.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/poi.app"
   end

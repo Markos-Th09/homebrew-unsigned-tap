@@ -21,13 +21,13 @@ cask "pure-writer" do
     end
   end
 
+  pkg "Pure Writer-#{version.csv.second}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/Pure Writer-#{version.csv.second}.pkg"
   end
-
-  pkg "Pure Writer-#{version.csv.second}.pkg"
 
   uninstall pkgutil: "com.drakeet.purewriter"
 

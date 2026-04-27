@@ -19,10 +19,6 @@ cask "qutebrowser" do
   shimscript = "#{staged_path}/qutebrowser.wrapper.sh"
 
   app "qutebrowser.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qutebrowser.app"
-  end
-
   binary shimscript, target: "qutebrowser"
 
   preflight do
@@ -30,6 +26,10 @@ cask "qutebrowser" do
       #!/bin/sh
       '#{appdir}/qutebrowser.app/Contents/MacOS/qutebrowser' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qutebrowser.app"
   end
 
   zap trash: [

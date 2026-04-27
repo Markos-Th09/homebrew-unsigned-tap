@@ -19,6 +19,7 @@ cask "openemu@experimental" do
   conflicts_with cask: "openemu"
 
   app "OpenEmu.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenEmu.app"
   end

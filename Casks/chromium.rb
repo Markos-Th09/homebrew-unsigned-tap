@@ -15,13 +15,10 @@ cask "chromium" do
   conflicts_with cask: "ungoogled-chromium"
   depends_on macos: ">= :monterey"
 
-  app "chrome-mac/Chromium.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Chromium.app"
-  end
-
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/chromium.wrapper.sh"
+
+  app "chrome-mac/Chromium.app"
   binary shimscript, target: "chromium"
 
   preflight do
@@ -29,6 +26,10 @@ cask "chromium" do
       #!/bin/sh
       exec '#{appdir}/Chromium.app/Contents/MacOS/Chromium' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Chromium.app"
   end
 
   zap trash: [

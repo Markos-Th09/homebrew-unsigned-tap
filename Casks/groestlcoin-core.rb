@@ -18,12 +18,13 @@ cask "groestlcoin-core" do
   # Renamed for consistency: app name is different in the Finder and in a shell.
 
   app "Groestlcoin-Qt.app", target: "Groestlcoin Core.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Groestlcoin-Qt.app"
-  end
 
   preflight do
     set_permissions "#{staged_path}/Groestlcoin-Qt.app", "0755"
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Groestlcoin-Qt.app"
   end
 
   zap trash: "~/Library/Preferences/org.groestlcoin.Groestlcoin-Qt.plist"

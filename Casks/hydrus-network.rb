@@ -18,9 +18,11 @@ cask "hydrus-network" do
   # Version 636 was the last version with a macOS app (see:
   # https://github.com/hydrusnetwork/hydrus/releases/tag/v636).
   deprecate! date: "2025-09-03", because: :discontinued
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Hydrus Network.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hydrus Network.app"
   end

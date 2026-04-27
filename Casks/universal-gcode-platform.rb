@@ -21,6 +21,7 @@ cask "universal-gcode-platform" do
   depends_on macos: ">= :big_sur"
 
   app "Universal Gcode Sender.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Universal Gcode Sender.app"
   end

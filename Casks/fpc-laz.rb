@@ -16,13 +16,13 @@ cask "fpc-laz" do
     end
   end
 
+  pkg "fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
   end
-
-  pkg "fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
 
   uninstall pkgutil: [
     "org.freepascal.fpc",

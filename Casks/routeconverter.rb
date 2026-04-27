@@ -17,6 +17,7 @@ cask "routeconverter" do
   auto_updates true
 
   app "RouteConverter.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/RouteConverter.app"
   end

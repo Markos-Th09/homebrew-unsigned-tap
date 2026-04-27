@@ -8,13 +8,13 @@ cask "logdna-cli" do
   desc "Command-line interface for LogDNA"
   homepage "https://www.mezmo.com/"
 
+  pkg "logdna-cli.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/logdna-cli.pkg"
   end
-
-  pkg "logdna-cli.pkg"
 
   uninstall pkgutil: "com.logdna.logdna-cli"
 

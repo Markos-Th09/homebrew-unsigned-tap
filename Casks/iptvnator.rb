@@ -20,6 +20,7 @@ cask "iptvnator" do
   depends_on macos: ">= :monterey"
 
   app "iptvnator.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/iptvnator.app"
   end

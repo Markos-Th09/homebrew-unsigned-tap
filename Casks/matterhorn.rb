@@ -18,6 +18,7 @@ cask "matterhorn" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   binary "matterhorn-#{version}-Darwin-#{arch}/matterhorn"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/matterhorn-#{version}-Darwin-#{arch}/matterhorn"
   end

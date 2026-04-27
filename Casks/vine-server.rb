@@ -18,13 +18,13 @@ cask "vine-server" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Vine Server.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vine Server.app"
-  end
-
   binary "#{appdir}/Vine Server.app/Contents/MacOS/OSXvnc-server"
   binary "#{appdir}/Vine Server.app/Contents/MacOS/storepasswd"
   binary "#{appdir}/Vine Server.app/Contents/MacOS/Vine Server"
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vine Server.app"
+  end
 
   uninstall delete: "/Library/Application Support/VineServer"
 

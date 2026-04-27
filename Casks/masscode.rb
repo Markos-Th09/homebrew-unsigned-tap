@@ -21,6 +21,7 @@ cask "masscode" do
   depends_on macos: ">= :big_sur"
 
   app "massCode.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/massCode.app"
   end

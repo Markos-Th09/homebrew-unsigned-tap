@@ -20,6 +20,7 @@ cask "inav-configurator" do
   depends_on macos: ">= :monterey"
 
   app "INAV Configurator.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/INAV Configurator.app"
   end

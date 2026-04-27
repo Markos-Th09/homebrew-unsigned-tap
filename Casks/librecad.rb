@@ -26,7 +26,6 @@ cask "librecad" do
 
           (match[1] == tag) ? tag : "#{tag},#{match[1]}"
         end
-
       end.flatten
     end
   end
@@ -36,6 +35,7 @@ cask "librecad" do
   depends_on macos: ">= :big_sur"
 
   app "LibreCAD.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LibreCAD.app"
   end

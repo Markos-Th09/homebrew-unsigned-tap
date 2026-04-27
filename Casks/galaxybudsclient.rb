@@ -14,11 +14,11 @@ cask "galaxybudsclient" do
 
   depends_on macos: ">= :monterey"
 
+  pkg "GalaxyBudsClient_macOS_#{arch}.pkg"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/GalaxyBudsClient_macOS_#{arch}.pkg"
   end
-
-  pkg "GalaxyBudsClient_macOS_#{arch}.pkg"
 
   uninstall pkgutil: "me.timschneeberger.galaxybudsclient"
 

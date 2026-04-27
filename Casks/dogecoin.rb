@@ -16,12 +16,13 @@ cask "dogecoin" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Dogecoin-Qt.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dogecoin-Qt.app"
-  end
 
   preflight do
     set_permissions "#{staged_path}/Dogecoin-Qt.app", "0755"
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dogecoin-Qt.app"
   end
 
   zap trash: "~/Library/com.dogecoin.Dogecoin-Qt.plist"

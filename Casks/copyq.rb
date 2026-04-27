@@ -1,19 +1,20 @@
 cask "copyq" do
-  arch arm: "12-m1", intel: "13"
-
   version "13.0.0"
-  sha256 arm:   "2eb743cc57a97fde6c71d6ec0587408ae2beb41939699117d32b74e68882e77e",
-         intel: "12087e0b9788d8e2b8e055759444346ffbe8901189219c941a3e3d631784bf98"
+  sha256 "12087e0b9788d8e2b8e055759444346ffbe8901189219c941a3e3d631784bf98"
 
   on_arm do
+    sha256 "2eb743cc57a97fde6c71d6ec0587408ae2beb41939699117d32b74e68882e77e"
+
+    url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ-macos-12-m1.dmg.zip"
+
     depends_on macos: ">= :monterey"
   end
-
   on_intel do
     depends_on macos: ">= :ventura"
   end
 
-  url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ-macos-#{arch}.dmg.zip",
+  # Default to intel asset so parsing works on non-macOS hosts.
+  url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ-macos-13.dmg.zip",
       verified: "github.com/hluk/CopyQ/"
   name "CopyQ"
   desc "Clipboard manager with advanced features"
@@ -27,6 +28,7 @@ cask "copyq" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "CopyQ.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CopyQ.app"
   end

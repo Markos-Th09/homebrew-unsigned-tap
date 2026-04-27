@@ -35,6 +35,7 @@ cask "forkgram-telegram" do
   # Renamed to avoid conflict with telegram
 
   app "Telegram.app", target: "Forkgram.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Telegram.app"
   end

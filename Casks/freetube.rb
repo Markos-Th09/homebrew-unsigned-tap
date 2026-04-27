@@ -12,7 +12,6 @@ cask "freetube" do
       skip "Legacy version"
     end
   end
-
   on_big_sur :or_newer do
     version "0.23.15"
     sha256 arm:   "6a25f689ecf0382c9b3c98be308f5d97eda1c362035dd1d715307a25ab68320a",
@@ -34,6 +33,7 @@ cask "freetube" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "FreeTube.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/FreeTube.app"
   end

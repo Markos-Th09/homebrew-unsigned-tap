@@ -25,7 +25,6 @@ cask "appium-inspector" do
 
           match[1]
         end
-
       end.flatten
     end
   end
@@ -35,6 +34,7 @@ cask "appium-inspector" do
   depends_on macos: ">= :monterey"
 
   app "Appium Inspector.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Appium Inspector.app"
   end

@@ -19,6 +19,7 @@ cask "pages-data-merge" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Pages Data Merge.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Pages Data Merge.app"
   end

@@ -15,11 +15,11 @@ cask "zandronum" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Zandronum.app"
+  app "Doomseeker.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Zandronum.app"
   end
-
-  app "Doomseeker.app"
 
   zap trash: [
     "~/Library/Application Support/Doomseeker",

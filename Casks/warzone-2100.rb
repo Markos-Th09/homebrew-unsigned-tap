@@ -16,6 +16,7 @@ cask "warzone-2100" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Warzone 2100.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Warzone 2100.app"
   end

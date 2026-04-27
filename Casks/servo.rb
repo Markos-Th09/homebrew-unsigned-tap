@@ -22,6 +22,7 @@ cask "servo" do
   depends_on macos: ">= :ventura"
 
   app "Servo.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Servo.app"
   end

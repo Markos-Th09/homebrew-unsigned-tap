@@ -15,13 +15,13 @@ cask "pololu-avr-programmer-v2" do
     end
   end
 
+  pkg "pololu-usb-avr-programmer-v2-#{version.csv.second}-macos.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/pololu-usb-avr-programmer-v2-#{version.csv.second}-macos.pkg"
   end
-
-  pkg "pololu-usb-avr-programmer-v2-#{version.csv.second}-macos.pkg"
 
   uninstall pkgutil: [
     "com.pololu.pavr2.app",

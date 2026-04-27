@@ -8,7 +8,6 @@ cask "imhex" do
   on_arm do
     depends_on macos: ">= :ventura"
   end
-
   on_intel do
     depends_on macos: ">= :sequoia"
   end
@@ -22,6 +21,7 @@ cask "imhex" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "ImHex.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ImHex.app"
   end

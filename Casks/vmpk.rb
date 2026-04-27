@@ -18,6 +18,7 @@ cask "vmpk" do
   depends_on formula: "fluid-synth"
 
   app "vmpk.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/vmpk.app"
   end

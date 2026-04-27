@@ -12,6 +12,7 @@ cask "tomatobar" do
   depends_on macos: ">= :big_sur"
 
   app "TomatoBar.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TomatoBar.app"
   end

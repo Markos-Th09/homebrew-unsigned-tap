@@ -11,7 +11,6 @@ cask "phd2" do
       regex(/href=.*?PHD2[._-]v?(\d+(?:\.\d+)+)-OSX-64\.zip/i)
     end
   end
-
   on_sonoma :or_newer do
     sha256 "11f324ea4154508419f14215605972278c2adef6f91634f03e36aa8c2e92aa56"
 
@@ -30,6 +29,7 @@ cask "phd2" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "PHD2.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PHD2.app"
   end

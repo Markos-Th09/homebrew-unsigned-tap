@@ -18,6 +18,7 @@ cask "c0re100-qbittorrent" do
   depends_on macos: ">= :monterey"
 
   app "qbittorrent.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
   end

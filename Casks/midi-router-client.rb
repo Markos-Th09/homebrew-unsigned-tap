@@ -17,6 +17,7 @@ cask "midi-router-client" do
   depends_on macos: ">= :tahoe"
 
   app "midi-router-client.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/midi-router-client.app"
   end

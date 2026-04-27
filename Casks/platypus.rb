@@ -18,6 +18,7 @@ cask "platypus" do
   depends_on macos: ">= :big_sur"
 
   app "Platypus.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Platypus.app"
   end

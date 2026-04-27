@@ -15,13 +15,13 @@ cask "yggdrasil" do
     strategy :github_latest
   end
 
+  pkg "yggdrasil-#{version}-macos-#{arch}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/yggdrasil-#{version}-macos-#{arch}.pkg"
   end
-
-  pkg "yggdrasil-#{version}-macos-#{arch}.pkg"
 
   uninstall launchctl: "yggdrasil",
             pkgutil:   "io.github.yggdrasil-network.pkg"

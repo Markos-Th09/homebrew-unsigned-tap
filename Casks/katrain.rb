@@ -27,7 +27,6 @@ cask "katrain" do
 
           match[1]
         end
-
       end.flatten
     end
   end
@@ -35,6 +34,7 @@ cask "katrain" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "KaTrain.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KaTrain.app"
   end

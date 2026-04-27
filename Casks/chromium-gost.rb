@@ -20,6 +20,7 @@ cask "chromium-gost" do
   depends_on macos: ">= :monterey"
 
   app "Chromium-Gost.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Chromium-Gost.app"
   end

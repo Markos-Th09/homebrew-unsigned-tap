@@ -25,11 +25,11 @@ cask "macdown" do
   conflicts_with cask: "macdown-3000"
 
   app "MacDown.app"
+  binary "#{appdir}/MacDown.app/Contents/SharedSupport/bin/macdown"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"
   end
-
-  binary "#{appdir}/MacDown.app/Contents/SharedSupport/bin/macdown"
 
   zap trash: [
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.uranusjr.macdown.sfl*",

@@ -18,6 +18,7 @@ cask "dmidiplayer" do
   depends_on formula: "fluid-synth"
 
   app "dmidiplayer.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dmidiplayer.app"
   end

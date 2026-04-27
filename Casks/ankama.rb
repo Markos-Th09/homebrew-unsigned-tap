@@ -17,6 +17,7 @@ cask "ankama" do
   auto_updates true
 
   app "Ankama Launcher.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Ankama Launcher.app"
   end

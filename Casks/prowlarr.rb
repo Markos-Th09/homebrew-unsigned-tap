@@ -24,6 +24,7 @@ cask "prowlarr" do
   depends_on macos: ">= :big_sur"
 
   app "Prowlarr.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Prowlarr.app"
   end

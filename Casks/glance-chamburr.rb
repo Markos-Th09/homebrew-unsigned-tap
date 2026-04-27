@@ -12,6 +12,7 @@ cask "glance-chamburr" do
   depends_on macos: ">= :big_sur"
 
   app "Glance.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Glance.app"
   end

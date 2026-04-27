@@ -22,6 +22,7 @@ cask "olympus" do
   container nested: "macos.main/dist.zip"
 
   app "Olympus.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Olympus.app"
   end

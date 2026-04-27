@@ -8,7 +8,6 @@ cask "kindle-comic-converter" do
   on_arm do
     depends_on macos: ">= :big_sur"
   end
-
   on_intel do
     depends_on macos: ">= :catalina"
   end
@@ -27,6 +26,7 @@ cask "kindle-comic-converter" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Kindle Comic Converter.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Kindle Comic Converter.app"
   end

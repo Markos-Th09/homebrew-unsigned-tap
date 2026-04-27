@@ -8,7 +8,6 @@ cask "flameshot" do
   on_arm do
     depends_on macos: ">= :sonoma"
   end
-
   on_intel do
     depends_on macos: ">= :ventura"
   end
@@ -27,6 +26,7 @@ cask "flameshot" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "flameshot.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/flameshot.app"
   end

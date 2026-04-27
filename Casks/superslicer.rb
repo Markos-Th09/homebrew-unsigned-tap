@@ -28,6 +28,7 @@ cask "superslicer" do
   depends_on formula: "zstd"
 
   app "SuperSlicer.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SuperSlicer.app"
   end

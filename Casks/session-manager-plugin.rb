@@ -20,6 +20,7 @@ cask "session-manager-plugin" do
 
   pkg "session-manager-plugin.pkg"
   binary "/usr/local/sessionmanagerplugin/bin/session-manager-plugin"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/session-manager-plugin.pkg"
   end

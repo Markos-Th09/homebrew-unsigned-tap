@@ -18,6 +18,7 @@ cask "sonarr@beta" do
   depends_on cask: "mono-mdk"
 
   app "Sonarr.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
   end

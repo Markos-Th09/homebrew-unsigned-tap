@@ -16,6 +16,7 @@ cask "lazpaint" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "LazPaint.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LazPaint.app"
   end

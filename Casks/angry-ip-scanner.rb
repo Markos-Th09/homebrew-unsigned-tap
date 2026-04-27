@@ -16,6 +16,7 @@ cask "angry-ip-scanner" do
   depends_on macos: ">= :big_sur"
 
   app "Angry IP Scanner.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Angry IP Scanner.app"
   end

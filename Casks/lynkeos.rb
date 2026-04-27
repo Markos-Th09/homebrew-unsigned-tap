@@ -16,6 +16,7 @@ cask "lynkeos" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Lynkeos-App-#{version.dots_to_hyphens}/Lynkeos.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Lynkeos.app"
   end

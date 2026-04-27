@@ -21,6 +21,7 @@ cask "nagstamon" do
   depends_on macos: ">= :big_sur"
 
   app "Nagstamon.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nagstamon.app"
   end

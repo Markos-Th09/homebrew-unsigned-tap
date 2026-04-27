@@ -16,6 +16,7 @@ cask "texstudio" do
   depends_on macos: ">= :ventura"
 
   app "texstudio-#{version}-osx#{arch}.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/texstudio-#{version}-osx#{arch}.app"
   end

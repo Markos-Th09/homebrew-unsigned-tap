@@ -19,6 +19,7 @@ cask "qownnotes" do
   depends_on macos: ">= :monterey"
 
   app "QOwnNotes.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QOwnNotes.app"
   end

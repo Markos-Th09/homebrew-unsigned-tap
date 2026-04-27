@@ -20,6 +20,7 @@ cask "tetrio" do
   depends_on macos: ">= :big_sur"
 
   app "TETR.IO.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TETR.IO.app"
   end

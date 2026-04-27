@@ -16,10 +16,6 @@ cask "lyx" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "LyX.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"
-  end
-
   binary "#{appdir}/LyX.app/Contents/MacOS/inkscape", target: "lyx-inkscape"
   binary "#{appdir}/LyX.app/Contents/MacOS/lyx"
   binary "#{appdir}/LyX.app/Contents/MacOS/lyxclient"
@@ -27,6 +23,10 @@ cask "lyx" do
   binary "#{appdir}/LyX.app/Contents/MacOS/lyxeditor"
   binary "#{appdir}/LyX.app/Contents/MacOS/maxima", target: "lyx-maxima"
   binary "#{appdir}/LyX.app/Contents/MacOS/tex2lyx"
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"
+  end
 
   zap trash: [
     "~/Library/Application Support/LyX-#{version.major_minor}",

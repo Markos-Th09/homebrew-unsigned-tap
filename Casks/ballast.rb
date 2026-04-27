@@ -13,6 +13,7 @@ cask "ballast" do
   depends_on macos: ">= :monterey"
 
   app "ballast.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ballast.app"
   end

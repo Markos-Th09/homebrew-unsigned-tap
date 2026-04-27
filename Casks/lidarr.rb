@@ -8,7 +8,6 @@ cask "lidarr" do
   on_arm do
     depends_on macos: ">= :big_sur"
   end
-
   on_intel do
     depends_on macos: ">= :catalina"
   end
@@ -31,6 +30,7 @@ cask "lidarr" do
   auto_updates true
 
   app "Lidarr.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Lidarr.app"
   end

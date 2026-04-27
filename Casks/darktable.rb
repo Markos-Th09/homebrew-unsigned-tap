@@ -8,7 +8,6 @@ cask "darktable" do
   on_arm do
     depends_on macos: ">= :sonoma"
   end
-
   on_intel do
     depends_on macos: ">= :sequoia"
   end
@@ -27,6 +26,7 @@ cask "darktable" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "darktable.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/darktable.app"
   end

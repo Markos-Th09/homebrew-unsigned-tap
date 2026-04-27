@@ -15,6 +15,7 @@ cask "uvtools" do
   auto_updates true
 
   app "UVtools.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UVtools.app"
   end

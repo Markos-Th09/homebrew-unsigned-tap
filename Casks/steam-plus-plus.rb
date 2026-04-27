@@ -18,6 +18,7 @@ cask "steam-plus-plus" do
   depends_on macos: ">= :monterey"
 
   app "Steam++.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Steam++.app"
   end

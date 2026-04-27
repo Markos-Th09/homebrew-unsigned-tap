@@ -23,6 +23,7 @@ cask "geogebra" do
   depends_on macos: ">= :monterey"
 
   app "GeoGebra Classic #{version.major}.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GeoGebra Classic #{version.major}.app"
   end

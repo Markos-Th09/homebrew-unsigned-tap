@@ -11,11 +11,11 @@ cask "love" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "love.app"
+  binary "#{appdir}/love.app/Contents/MacOS/love"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/love.app"
   end
-
-  binary "#{appdir}/love.app/Contents/MacOS/love"
 
   zap trash: "~/Library/Saved Application State/org.love2d.love.savedState"
 end

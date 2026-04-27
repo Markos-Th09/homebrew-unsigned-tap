@@ -13,6 +13,7 @@ cask "qmk-toolbox" do
   depends_on macos: ">= :monterey"
 
   app "QMK Toolbox.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QMK Toolbox.app"
   end

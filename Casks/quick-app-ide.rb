@@ -13,13 +13,13 @@ cask "quick-app-ide" do
     regex(/quickapp[._-]ide[._-]*?v?(\d+(?:\.\d+)+)\.pkg/i)
   end
 
+  pkg "quickapp-ide-#{version}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/quickapp-ide-#{version}.pkg"
   end
-
-  pkg "quickapp-ide-#{version}.pkg"
 
   uninstall quit:    "cn.quickapp.ide",
             pkgutil: [

@@ -7,7 +7,6 @@ cask "qbittorrent" do
       skip "Legacy version"
     end
   end
-
   on_big_sur :or_newer do
     version "5.0.5"
     sha256 "7285e98b5ef4b9a227247dcd933f1a556bfc1ff10901fc7aedb0c4b7ad082814"
@@ -31,6 +30,7 @@ cask "qbittorrent" do
   # Renamed for consistency: app name is different in the Finder and in a shell.
 
   app "qbittorrent.app", target: "qBittorrent.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qbittorrent.app"
   end

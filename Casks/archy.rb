@@ -18,6 +18,7 @@ cask "archy" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   binary "archyBin/archy-macos-#{version}", target: "archy"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/archyBin/archy-macos-#{version}"
   end

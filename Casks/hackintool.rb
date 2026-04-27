@@ -12,6 +12,7 @@ cask "hackintool" do
   auto_updates true
 
   app "Hackintool.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hackintool.app"
   end

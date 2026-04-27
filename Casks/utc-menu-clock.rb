@@ -18,6 +18,7 @@ cask "utc-menu-clock" do
   depends_on macos: ">= :sequoia"
 
   app "UTCMenuClock.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/UTCMenuClock.app"
   end

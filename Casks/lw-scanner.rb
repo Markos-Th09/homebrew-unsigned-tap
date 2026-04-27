@@ -19,6 +19,7 @@ cask "lw-scanner" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   binary "bin/lw-scanner"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/bin/lw-scanner"
   end

@@ -22,7 +22,6 @@ cask "widelands-app" do
       sha256 "9370b6771f2ca9140b77c7c38b59bcda3bd3602d6d90ba0a5d6237185a768fa7"
     end
   end
-
   on_sequoia :or_newer do
     arch arm: "15_arm64", intel: "15_x86"
 
@@ -51,6 +50,7 @@ cask "widelands-app" do
   depends_on macos: ">= :big_sur"
 
   app "Widelands.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Widelands.app"
   end

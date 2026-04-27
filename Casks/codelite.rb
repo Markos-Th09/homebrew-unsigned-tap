@@ -51,7 +51,6 @@ cask "codelite" do
       end
     end
   end
-
   on_intel do
     arch intel: "x86_64"
 
@@ -73,6 +72,7 @@ cask "codelite" do
   depends_on macos: ">= :monterey"
 
   app "codelite.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/codelite.app"
   end

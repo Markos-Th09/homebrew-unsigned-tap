@@ -17,6 +17,7 @@ cask "qview" do
   depends_on macos: ">= :monterey"
 
   app "qView.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/qView.app"
   end

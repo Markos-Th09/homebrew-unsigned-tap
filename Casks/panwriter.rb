@@ -22,6 +22,7 @@ cask "panwriter" do
   depends_on macos: ">= :monterey"
 
   app "PanWriter.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PanWriter.app"
   end

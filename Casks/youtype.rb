@@ -17,6 +17,7 @@ cask "youtype" do
   auto_updates true
 
   app "YouType.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/YouType.app"
   end

@@ -20,6 +20,7 @@ cask "wireframe-sketcher" do
   depends_on macos: ">= :big_sur"
 
   app "WireframeSketcher.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WireframeSketcher.app"
   end

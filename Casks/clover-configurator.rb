@@ -18,6 +18,7 @@ cask "clover-configurator" do
   auto_updates true
 
   app "Clover Configurator.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Clover Configurator.app"
   end

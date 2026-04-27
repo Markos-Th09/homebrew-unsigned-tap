@@ -24,6 +24,7 @@ cask "min" do
   depends_on macos: ">= :monterey"
 
   app "Min.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Min.app"
   end

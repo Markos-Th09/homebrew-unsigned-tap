@@ -17,6 +17,7 @@ cask "pronterface" do
   depends_on macos: ">= :big_sur"
 
   app "pronterface.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pronterface.app"
   end

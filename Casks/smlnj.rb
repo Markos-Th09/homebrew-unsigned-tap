@@ -13,13 +13,13 @@ cask "smlnj" do
     regex(%r{href=.*?/smlnj-amd64-(\d+(?:\.\d+)*)\.pkg}i)
   end
 
+  pkg "smlnj-amd64-#{version}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/smlnj-amd64-#{version}.pkg"
   end
-
-  pkg "smlnj-amd64-#{version}.pkg"
 
   uninstall pkgutil: "org.smlnj.amd64.pkg"
 

@@ -21,12 +21,13 @@ cask "vertcoin-core" do
   # Renamed for consistency: app name is different in the Finder and in a shell.
 
   app "Vertcoin-Qt.app", target: "Vertcoin Core.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vertcoin-Qt.app"
-  end
 
   preflight do
     set_permissions "#{staged_path}/Vertcoin-Qt.app", "0755"
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vertcoin-Qt.app"
   end
 
   zap trash: "~/Library/Preferences/org.vertcoin.Vertcoin-Qt.plist"

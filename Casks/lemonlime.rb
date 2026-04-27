@@ -8,7 +8,6 @@ cask "lemonlime" do
   on_arm do
     depends_on macos: ">= :big_sur"
   end
-
   on_intel do
     depends_on macos: ">= :catalina"
   end
@@ -34,6 +33,7 @@ cask "lemonlime" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "lemon.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/lemon.app"
   end

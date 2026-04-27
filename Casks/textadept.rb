@@ -16,11 +16,11 @@ cask "textadept" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Textadept.app"
+  binary "ta"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Textadept.app"
   end
-
-  binary "ta"
 
   zap trash: [
     "~/.textadept",

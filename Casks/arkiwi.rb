@@ -17,6 +17,7 @@ cask "arkiwi" do
   auto_updates true
 
   app "ArKiwi.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ArKiwi.app"
   end

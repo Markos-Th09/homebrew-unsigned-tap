@@ -17,6 +17,7 @@ cask "brisk" do
   auto_updates true
 
   app "Brisk.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Brisk.app"
   end

@@ -15,6 +15,7 @@ cask "mark-text" do
   auto_updates true
 
   app "MarkText.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MarkText.app"
   end

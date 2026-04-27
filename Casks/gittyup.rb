@@ -25,7 +25,6 @@ cask "gittyup" do
 
           match[1]
         end
-
       end.flatten
     end
   end
@@ -36,6 +35,7 @@ cask "gittyup" do
   depends_on macos: ">= :monterey"
 
   app "Gittyup.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gittyup.app"
   end

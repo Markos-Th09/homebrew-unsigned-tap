@@ -18,11 +18,11 @@ cask "obs-advanced-scene-switcher" do
   depends_on cask: "obs"
   depends_on macos: ">= :big_sur"
 
+  pkg "advanced-scene-switcher-#{version}-macos-universal.pkg"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/advanced-scene-switcher-#{version}-macos-universal.pkg"
   end
-
-  pkg "advanced-scene-switcher-#{version}-macos-universal.pkg"
 
   uninstall pkgutil: [
               "'com.warmuptill.advanced-scene-switcher'",

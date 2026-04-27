@@ -16,6 +16,7 @@ cask "disk-inventory-x" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Disk Inventory X.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Disk Inventory X.app"
   end

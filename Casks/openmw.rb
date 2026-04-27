@@ -22,11 +22,11 @@ cask "openmw" do
   depends_on macos: ">= :ventura"
 
   app "OpenMW.app"
+  app "OpenMW-CS.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenMW.app"
   end
-
-  app "OpenMW-CS.app"
 
   zap trash: [
     "~/Library/Application Support/openmw",

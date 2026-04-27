@@ -19,19 +19,19 @@ cask "xld" do
   auto_updates true
 
   app "XLD.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XLD.app"
-  end
+  binary shimscript, target: "xld"
 
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/xld.wrapper.sh"
-  binary shimscript, target: "xld"
-
   preflight do
     File.write shimscript, <<~EOS
       #!/bin/sh
       exec '#{appdir}/XLD.app/Contents/MacOS/XLD' "--cmdline" "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XLD.app"
   end
 
   zap trash: [

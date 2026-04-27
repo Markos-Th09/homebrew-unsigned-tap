@@ -33,11 +33,11 @@ cask "powershell@preview" do
 
   depends_on macos: ">= :big_sur"
 
+  pkg "powershell-#{version}-osx-#{arch}.pkg"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/powershell-#{version}-osx-#{arch}.pkg"
   end
-
-  pkg "powershell-#{version}-osx-#{arch}.pkg"
 
   uninstall pkgutil: "com.microsoft.powershell-preview",
             delete:  "/Applications/PowerShell-preview.app"

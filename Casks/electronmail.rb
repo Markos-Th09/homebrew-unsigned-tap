@@ -15,6 +15,7 @@ cask "electronmail" do
   depends_on macos: ">= :monterey"
 
   app "electron-mail.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/electron-mail.app"
   end

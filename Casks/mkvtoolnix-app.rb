@@ -17,10 +17,6 @@ cask "mkvtoolnix-app" do
   depends_on macos: ">= :ventura"
 
   app "MKVToolNix-#{version}.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MKVToolNix-#{version}.app"
-  end
-
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvextract"
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvinfo"
   binary "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/mkvmerge"
@@ -30,6 +26,10 @@ cask "mkvtoolnix-app" do
   manpage "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/man/man1/mkvmerge.1"
   manpage "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/man/man1/mkvpropedit.1"
   manpage "#{appdir}/MKVToolNix-#{version}.app/Contents/MacOS/man/man1/mkvtoolnix-gui.1"
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MKVToolNix-#{version}.app"
+  end
 
   zap trash: [
     "~/Library/Preferences/bunkus.org/mkvtoolnix-gui",

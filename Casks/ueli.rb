@@ -16,6 +16,7 @@ cask "ueli" do
   depends_on macos: ">= :monterey"
 
   app "ueli.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ueli.app"
   end

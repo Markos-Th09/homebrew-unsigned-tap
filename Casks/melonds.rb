@@ -13,6 +13,7 @@ cask "melonds" do
   depends_on macos: ">= :big_sur"
 
   app "melonDS.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/melonDS.app"
   end

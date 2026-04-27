@@ -11,6 +11,7 @@ cask "deadbeef@nightly" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "DeaDBeeF.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DeaDBeeF.app"
   end

@@ -13,6 +13,7 @@ cask "kiibohd-configurator" do
   depends_on formula: "dfu-util"
 
   app "Kiibohd Configurator.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Kiibohd Configurator.app"
   end

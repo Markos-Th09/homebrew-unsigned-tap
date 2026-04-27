@@ -18,6 +18,7 @@ cask "angband-app" do
   depends_on macos: ">= :big_sur"
 
   app "Angband.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Angband.app"
   end

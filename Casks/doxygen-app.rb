@@ -20,6 +20,7 @@ cask "doxygen-app" do
   depends_on macos: ">= :sequoia"
 
   app "Doxygen.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Doxygen.app"
   end

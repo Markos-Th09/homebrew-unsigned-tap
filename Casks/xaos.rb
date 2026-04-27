@@ -18,6 +18,7 @@ cask "xaos" do
   depends_on macos: ">= :big_sur"
 
   app "XaoS.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XaoS.app"
   end

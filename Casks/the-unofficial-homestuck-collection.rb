@@ -25,7 +25,6 @@ cask "the-unofficial-homestuck-collection" do
 
           match[1]
         end
-
       end.flatten
     end
   end
@@ -33,6 +32,7 @@ cask "the-unofficial-homestuck-collection" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "The Unofficial Homestuck Collection.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/The Unofficial Homestuck Collection.app"
   end

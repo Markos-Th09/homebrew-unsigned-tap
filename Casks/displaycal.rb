@@ -17,11 +17,11 @@ cask "displaycal" do
   auto_updates true
   depends_on formula: "argyll-cms"
 
+  pkg "DisplayCAL-#{version}.pkg"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/DisplayCAL-#{version}.pkg"
   end
-
-  pkg "DisplayCAL-#{version}.pkg"
 
   uninstall pkgutil: "net.displaycal.*.DisplayCAL.*"
 

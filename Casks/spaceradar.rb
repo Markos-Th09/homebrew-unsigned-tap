@@ -9,13 +9,12 @@ cask "spaceradar" do
 
     depends_on macos: ">= :sonoma"
 
+    app "Space Radar.app"
+
     postflight do
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Space Radar.app"
     end
-
-    app "Space Radar.app"
   end
-
   on_intel do
     version "6.0.0"
     sha256 "2ecc3b510ff214b25bc3791ea84b4192b0b3839d03e69ae716aaecdcc4d40eda"
@@ -34,24 +33,23 @@ cask "spaceradar" do
   # Not ever release contains a version for both architectures, so we check the releases page for all assets.
   # The assets path also can differ, so we need to check for two variants.
   livecheck do
-      url :url
-      regex(/^(?:
-            SpaceRadar[._-]v?(?:\d+(?:\.\d+)+)[._-]mac[._-]#{arch}\.zip|
-            stable[._-]macos[._-]#{arch}[._-]SpaceRadar\.dmg
-          )$/ix)
-      strategy :github_releases do |json, regex|
-        json.map do |release|
-          next if release["draft"] || release["prerelease"]
+    url :url
+    regex(/^(?:
+          SpaceRadar[._-]v?(?:\d+(?:\.\d+)+)[._-]mac[._-]#{arch}\.zip|
+          stable[._-]macos[._-]#{arch}[._-]SpaceRadar\.dmg
+        )$/ix)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
 
-          release["assets"]&.map do |asset|
-            match = asset["name"]&.match(regex)
-            next if match.blank?
+        release["assets"]&.map do |asset|
+          match = asset["name"]&.match(regex)
+          next if match.blank?
 
-            release["tag_name"]&.tr("v", "")
-          end
-
-        end.flatten
-      end
+          release["tag_name"]&.tr("v", "")
+        end
+      end.flatten
+    end
   end
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

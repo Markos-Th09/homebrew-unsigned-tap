@@ -14,13 +14,13 @@ cask "lego-mindstorms-ev3" do
     strategy :header_match
   end
 
+  pkg "LEGO MINDSTORMS EV3 Home Edition.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/LEGO MINDSTORMS EV3 Home Edition.pkg"
   end
-
-  pkg "LEGO MINDSTORMS EV3 Home Edition.pkg"
 
   uninstall pkgutil: [
     "com.microsoft.silverlight.plugin",

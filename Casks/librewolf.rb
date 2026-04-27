@@ -24,13 +24,10 @@ cask "librewolf" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  app "LibreWolf.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LibreWolf.app"
-  end
-
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/librewolf.wrapper.sh"
+
+  app "LibreWolf.app"
   binary shimscript, target: "librewolf"
 
   preflight do
@@ -38,6 +35,10 @@ cask "librewolf" do
       #!/bin/sh
       exec '#{appdir}/LibreWolf.app/Contents/MacOS/librewolf' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LibreWolf.app"
   end
 
   zap trash: [

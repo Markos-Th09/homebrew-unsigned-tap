@@ -24,11 +24,11 @@ cask "syntax-highlight" do
   depends_on macos: ">= :big_sur"
 
   app "Syntax Highlight.app"
+  binary "#{appdir}/Syntax Highlight.app/Contents/Resources/syntax_highlight_cli"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Syntax Highlight.app"
   end
-
-  binary "#{appdir}/Syntax Highlight.app/Contents/Resources/syntax_highlight_cli"
 
   zap trash: [
     "~/Library/Application Scripts/org.sbarex.SourceCodeSyntaxHighlight",

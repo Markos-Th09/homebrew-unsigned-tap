@@ -20,13 +20,13 @@ cask "salesforce-cli" do
     end
   end
 
+  pkg "sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
   end
-
-  pkg "sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
 
   uninstall pkgutil: "com.salesforce.cli",
             delete:  [

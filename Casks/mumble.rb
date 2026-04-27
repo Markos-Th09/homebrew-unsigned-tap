@@ -18,6 +18,7 @@ cask "mumble" do
   conflicts_with cask: "mumble@snapshot"
 
   app "Mumble.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Mumble.app"
   end

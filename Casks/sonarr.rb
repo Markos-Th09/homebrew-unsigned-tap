@@ -8,7 +8,6 @@ cask "sonarr" do
   on_arm do
     depends_on macos: ">= :big_sur"
   end
-
   on_intel do
     depends_on macos: ">= :catalina"
   end
@@ -30,6 +29,7 @@ cask "sonarr" do
   conflicts_with cask: "sonarr@beta"
 
   app "Sonarr.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sonarr.app"
   end

@@ -17,6 +17,7 @@ cask "okular" do
   end
 
   app "okular.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/okular.app"
   end

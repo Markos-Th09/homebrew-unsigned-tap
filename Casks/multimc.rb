@@ -19,6 +19,7 @@ cask "multimc" do
   auto_updates true
 
   app "MultiMC.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MultiMC.app"
   end

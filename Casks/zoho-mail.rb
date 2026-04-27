@@ -30,6 +30,7 @@ cask "zoho-mail" do
   depends_on macos: ">= :monterey"
 
   app "Zoho Mail - Desktop.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Zoho Mail - Desktop.app"
   end

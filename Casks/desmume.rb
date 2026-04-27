@@ -19,6 +19,7 @@ cask "desmume" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "DeSmuME.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DeSmuME.app"
   end

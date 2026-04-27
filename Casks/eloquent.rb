@@ -13,6 +13,7 @@ cask "eloquent" do
   depends_on macos: ">= :ventura"
 
   app "Eloquent.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Eloquent.app"
   end

@@ -15,13 +15,10 @@ cask "bandage" do
 
   depends_on macos: ">= :big_sur"
 
-  app "Bandage.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bandage.app"
-  end
-
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/bandage.wrapper.sh"
+
+  app "Bandage.app"
   binary shimscript, target: "bandage"
 
   preflight do
@@ -29,6 +26,10 @@ cask "bandage" do
       #!/bin/sh
       exec '#{appdir}/Bandage.app/Contents/MacOS/Bandage' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bandage.app"
   end
 
   zap trash: [

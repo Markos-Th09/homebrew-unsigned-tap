@@ -7,13 +7,13 @@ cask "qlcolorcode" do
   desc "Quick Look plug-in that renders source code with syntax highlighting"
   homepage "https://github.com/anthonygelibert/QLColorCode"
 
+  qlplugin "QLColorCode.qlgenerator"
+
   # Upstream deprecate! date: "2025-09-22", because: :no_longer_meets_criteria
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QLColorCode.qlgenerator"
   end
-
-  qlplugin "QLColorCode.qlgenerator"
 
   zap trash: "~/Library/Preferences/org.n8gray.QLColorCode.plist"
 end

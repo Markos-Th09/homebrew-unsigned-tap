@@ -18,6 +18,7 @@ cask "gpxsee" do
   depends_on macos: ">= :ventura"
 
   app "GPXSee.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GPXSee.app"
   end

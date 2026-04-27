@@ -24,6 +24,7 @@ cask "transmission@nightly" do
   depends_on macos: ">= :big_sur"
 
   app "Transmission.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Transmission.app"
   end

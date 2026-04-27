@@ -20,6 +20,7 @@ cask "papyrus" do
   conflicts_with cask: "morkro-papyrus"
 
   app "Papyrus.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Papyrus.app"
   end

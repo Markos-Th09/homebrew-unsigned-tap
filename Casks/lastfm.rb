@@ -15,6 +15,7 @@ cask "lastfm" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Last.fm.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Last.fm.app"
   end

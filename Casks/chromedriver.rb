@@ -23,6 +23,7 @@ cask "chromedriver" do
   conflicts_with cask: "chromedriver@beta"
 
   binary "chromedriver-mac-#{arch}/chromedriver"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/chromedriver-mac-#{arch}/chromedriver"
   end

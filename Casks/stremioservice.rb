@@ -21,6 +21,7 @@ cask "stremioservice" do
   depends_on arch: :arm64
 
   app "StremioService.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/StremioService.app"
   end

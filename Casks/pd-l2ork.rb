@@ -17,11 +17,11 @@ cask "pd-l2ork" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Purr-Data.app"
+  binary "#{appdir}/Purr-Data.app/Contents/Resources/app.nw/bin/pd-l2ork"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Purr-Data.app"
   end
-
-  binary "#{appdir}/Purr-Data.app/Contents/Resources/app.nw/bin/pd-l2ork"
 
   uninstall_preflight do
     set_permissions "#{appdir}/Purr-Data.app", "0777"

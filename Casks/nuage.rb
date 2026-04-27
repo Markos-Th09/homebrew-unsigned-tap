@@ -12,6 +12,7 @@ cask "nuage" do
   depends_on macos: ">= :ventura"
 
   app "Nuage.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nuage.app"
   end

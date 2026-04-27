@@ -16,6 +16,7 @@ cask "scihubeva" do
   depends_on macos: ">= :big_sur"
 
   app "Sci-Hub EVA.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sci-Hub EVA.app"
   end

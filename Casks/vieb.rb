@@ -15,13 +15,10 @@ cask "vieb" do
 
   depends_on macos: ">= :monterey"
 
-  app "Vieb.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vieb.app"
-  end
-
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/vieb.wrapper.sh"
+
+  app "Vieb.app"
   binary shimscript, target: "vieb"
 
   preflight do
@@ -29,6 +26,10 @@ cask "vieb" do
       #!/bin/sh
       exec '#{appdir}/Vieb.app/Contents/MacOS/Vieb' "$@"
     EOS
+  end
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vieb.app"
   end
 
   zap trash: [

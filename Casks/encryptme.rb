@@ -19,6 +19,7 @@ cask "encryptme" do
   depends_on macos: ">= :monterey"
 
   app "EncryptMe.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/EncryptMe.app"
   end

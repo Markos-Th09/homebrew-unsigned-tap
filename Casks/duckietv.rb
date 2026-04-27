@@ -23,18 +23,17 @@ cask "duckietv" do
 
           match[1]
         end
-
       end.flatten
     end
   end
+
+  pkg "DuckieTV-#{version}-OSX-x64.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/DuckieTV-#{version}-OSX-x64.pkg"
   end
-
-  pkg "DuckieTV-#{version}-OSX-x64.pkg"
 
   uninstall pkgutil: "tv.duckie.base.pkg",
             delete:  [

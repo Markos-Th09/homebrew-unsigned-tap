@@ -9,17 +9,16 @@ cask "xit" do
       skip "Legacy version"
     end
 
+    app "Xit.app"
+
     postflight do
       system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xit.app"
     end
-
-    app "Xit.app"
 
     caveats do
       requires_rosetta
     end
   end
-
   on_monterey :or_newer do
     arch arm: "-arm"
 

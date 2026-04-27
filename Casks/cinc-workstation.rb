@@ -13,7 +13,6 @@ cask "cinc-workstation" do
       regex(/version\s*(\d+(?:\.\d+)+)/i)
     end
   end
-
   on_monterey do
     version "25.13.7"
     sha256 arm:   "9d8f3c9ea48aea18192d3356d655e92a6d822853239fe016436f7f17186284f1",
@@ -26,7 +25,6 @@ cask "cinc-workstation" do
       regex(/version\s*(\d+(?:\.\d+)+)/i)
     end
   end
-
   on_ventura :or_newer do
     version "25.13.7"
     sha256 arm:   "c3341af080428e5f38966ed5317560c334508622a8983305bcfe5dd9ca3da1c4",
@@ -48,11 +46,11 @@ cask "cinc-workstation" do
 
   depends_on macos: ">= :big_sur"
 
+  pkg "cinc-workstation-#{version}-1.#{arch}.pkg"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/cinc-workstation-#{version}-1.#{arch}.pkg"
   end
-
-  pkg "cinc-workstation-#{version}-1.#{arch}.pkg"
 
   uninstall launchctl: "io.chef.chef-workstation.app",
             script:    {

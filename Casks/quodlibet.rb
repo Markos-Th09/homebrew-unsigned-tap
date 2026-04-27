@@ -18,6 +18,7 @@ cask "quodlibet" do
   auto_updates true
 
   app "QuodLibet.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QuodLibet.app"
   end

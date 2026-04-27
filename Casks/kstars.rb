@@ -19,6 +19,7 @@ cask "kstars" do
   depends_on macos: ">= :ventura"
 
   app "kstars.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/kstars.app"
   end

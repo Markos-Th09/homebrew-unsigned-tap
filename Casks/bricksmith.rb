@@ -18,6 +18,7 @@ cask "bricksmith" do
   auto_updates true
 
   app "Bricksmith/Bricksmith.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bricksmith.app"
   end

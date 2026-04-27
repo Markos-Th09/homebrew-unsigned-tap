@@ -20,6 +20,7 @@ cask "caprine" do
   auto_updates true
 
   app "Caprine.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Caprine.app"
   end

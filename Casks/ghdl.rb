@@ -16,7 +16,6 @@ cask "ghdl" do
       requires_rosetta
     end
   end
-
   on_sonoma :or_newer do
     arch arm: "aarch64", intel: "x86_64"
 

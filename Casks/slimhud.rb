@@ -17,6 +17,7 @@ cask "slimhud" do
   auto_updates true
 
   app "SlimHUD.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SlimHUD.app"
   end

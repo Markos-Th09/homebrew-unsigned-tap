@@ -23,6 +23,7 @@ cask "v2rayu" do
   depends_on macos: ">= :big_sur"
 
   app "V2rayU.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/V2rayU.app"
   end

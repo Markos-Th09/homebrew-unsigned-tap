@@ -13,6 +13,7 @@ cask "pb" do
   auto_updates true
 
   app "PB for Desktop.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PB for Desktop.app"
   end

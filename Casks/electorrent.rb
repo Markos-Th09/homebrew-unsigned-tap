@@ -19,6 +19,7 @@ cask "electorrent" do
   auto_updates true
 
   app "Electorrent.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Electorrent.app"
   end

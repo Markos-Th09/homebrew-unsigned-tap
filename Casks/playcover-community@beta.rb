@@ -20,6 +20,7 @@ cask "playcover-community@beta" do
   depends_on macos: ">= :monterey"
 
   app "PlayCover.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PlayCover.app"
   end

@@ -15,12 +15,12 @@ cask "diffmerge" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "DiffMerge.app"
+  binary "Extras/diffmerge.sh", target: "diffmerge"
+  manpage "Extras/diffmerge.1"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DiffMerge.app"
   end
-
-  binary "Extras/diffmerge.sh", target: "diffmerge"
-  manpage "Extras/diffmerge.1"
 
   zap trash: [
     "~/Library/Preferences/com.sourcegear.DiffMerge.plist",

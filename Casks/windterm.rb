@@ -28,7 +28,6 @@ cask "windterm" do
 
           (match[1] == tag_version) ? tag_version : "#{match[1]},#{tag_version}"
         end
-
       end.flatten
     end
   end
@@ -38,6 +37,7 @@ cask "windterm" do
   auto_updates true
 
   app "WindTerm.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WindTerm.app"
   end

@@ -16,6 +16,7 @@ cask "toinane-colorpicker" do
   depends_on macos: ">= :monterey"
 
   app "Colorpicker.app"
+
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Colorpicker.app"
   end

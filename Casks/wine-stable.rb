@@ -40,10 +40,6 @@ cask "wine-stable" do
   depends_on cask: "other-gstreamer-runtime"
 
   app "Wine Stable.app"
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
-  end
-
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/appdb"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/start/bin/winehelp"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/msidb"
@@ -60,6 +56,10 @@ cask "wine-stable" do
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/winemine"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/winepath"
   binary "#{appdir}/Wine Stable.app/Contents/Resources/wine/bin/wineserver"
+
+  postflight do
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wine Stable.app"
+  end
 
   zap trash: [
         "~/.local/share/applications/wine*",

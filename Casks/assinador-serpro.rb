@@ -12,13 +12,13 @@ cask "assinador-serpro" do
     regex(/href=.*?AssinadorSerpro[._-]v?(\d+(?:\.\d+)+)\.m?pkg/i)
   end
 
+  pkg "AssinadorSerpro-#{version}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/AssinadorSerpro-#{version}.pkg"
   end
-
-  pkg "AssinadorSerpro-#{version}.pkg"
 
   uninstall pkgutil: "br.gov.serpro.desktop.assinador"
 

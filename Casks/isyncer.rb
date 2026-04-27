@@ -12,13 +12,13 @@ cask "isyncer" do
     regex(/href=.*?iSyncer[._-]?v?(\d+(?:\.\d+)+)[._-]?mac[._-]installer\.t/i)
   end
 
+  pkg "iSyncer-installer-#{version}.pkg"
+
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/iSyncer-installer-#{version}.pkg"
   end
-
-  pkg "iSyncer-installer-#{version}.pkg"
 
   uninstall pkgutil: "main.ISyncer.*"
 
