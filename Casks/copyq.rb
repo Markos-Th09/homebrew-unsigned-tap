@@ -4,7 +4,8 @@ cask "copyq" do
   on_arm do
     sha256 "2eb743cc57a97fde6c71d6ec0587408ae2beb41939699117d32b74e68882e77e"
 
-    url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ-macos-12-m1.dmg.zip"
+    url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ-macos-12-m1.dmg.zip",
+        verified: "github.com/hluk/CopyQ/"
 
     depends_on macos: ">= :monterey"
   end
