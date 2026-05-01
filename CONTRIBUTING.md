@@ -130,5 +130,3 @@ Fix any errors reported by `brew style` or `brew audit` before submitting.
 - Ensure `brew style` and `brew audit --cask` pass locally.
 - Do **not** change cask behavior unless required by a style/audit fix.
 - Keep commit messages concise (e.g. `alacritty: update to 0.16.1`).
-
-By contributing you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
