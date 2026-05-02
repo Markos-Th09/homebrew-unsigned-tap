@@ -20,12 +20,12 @@ cask "alex313031-thorium" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on macos: ">= :big_sur"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/thorium.wrapper.sh"
 
   app "Thorium.app", target: "Thorium Browser.app"
   binary shimscript, target: "thorium"
 
-  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
-  shimscript = "#{staged_path}/thorium.wrapper.sh"
   preflight do
     File.write shimscript, <<~EOS
       #!/bin/bash
@@ -34,7 +34,7 @@ cask "alex313031-thorium" do
   end
 
   postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium.app"
+    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium Browser.app"
   end
 
   zap trash: [
