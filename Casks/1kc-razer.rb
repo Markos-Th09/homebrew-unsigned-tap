@@ -6,6 +6,7 @@ cask "1kc-razer" do
   name "Razer macOS"
   desc "Open source colour effects manager for Razer devices"
   homepage "https://github.com/1kc/razer-macos"
+  depends_on :macos
 
   livecheck do
     url :url
