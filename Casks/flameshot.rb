@@ -12,8 +12,7 @@ cask "flameshot" do
     depends_on macos: ">= :ventura"
   end
 
-  url "https://github.com/flameshot-org/flameshot/releases/download/v#{version}/Flameshot-#{version}-artifact-macos-#{arch}.dmg",
-      verified: "github.com/flameshot-org/flameshot/"
+  url "https://github.com/flameshot-org/flameshot/releases/download/v#{version}/Flameshot-#{version}-artifact-macos-#{arch}.dmg"
   name "Flameshot"
   desc "Screenshot software with built-in annotation tools"
   homepage "https://flameshot.org/"

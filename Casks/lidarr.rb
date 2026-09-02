@@ -12,8 +12,7 @@ cask "lidarr" do
     depends_on macos: ">= :catalina"
   end
 
-  url "https://github.com/lidarr/Lidarr/releases/download/v#{version}/Lidarr.master.#{version}.osx-app-core-#{arch}.zip",
-      verified: "github.com/lidarr/Lidarr/"
+  url "https://github.com/lidarr/Lidarr/releases/download/v#{version}/Lidarr.master.#{version}.osx-app-core-#{arch}.zip"
   name "Lidarr"
   desc "Looks and smells like Sonarr but made for music"
   homepage "https://lidarr.audio/"
