@@ -11,7 +11,7 @@ cask "doxygen-app" do
   homepage "https://www.doxygen.nl/"
 
   livecheck do
-    url "https://www.doxygen.nl/download.html"
+    url "https://www.doxygen.nl/download.html", user_agent: :browser
     regex(/href=.*?Doxygen[._-]v?(\d+(?:\.\d+)+)[._-]#{arch}\.dmg/i)
   end
 
