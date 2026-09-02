@@ -17,25 +17,12 @@ cask "vlc@nightly" do
   homepage "https://www.videolan.org/vlc/"
 
   livecheck do
-    url "https://artifacts.videolan.org/vlc/nightly-macos-#{arch}/"
-    regex(/href=.*?vlc[._-]v?(\d+(?:\.\d+)+)[._-]dev[._-]#{livecheck_arch}[._-](\h+)\.dmg/i)
+    url "https://www.polyphone.io/en/software"
+    regex(%r{<a[^>]+href=["']/en/software/download\?file_id=(\d+)["'][^>]+title=["'][^"']*Polyphone_(\d+(?:\.\d+)+)-macOS_12#{livecheck_arch}\.dmg["']}i)
     strategy :page_match do |page, regex|
-      directory = page.scan(%r{href=["']?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
-                      .flatten
-                      .uniq
-                      .max
-      next if directory.blank?
-
-      # Fetch the directory listing page for newest build
-      build_response = Homebrew::Livecheck::Strategy.page_content(
-        "https://artifacts.videolan.org/vlc/nightly-macos-#{arch}/#{directory}/",
-      )
-      next if (build_page = build_response[:content]).blank?
-
-      match = build_page.match(regex)
-      next if match.blank?
-
-      "#{match[1]},#{directory},#{match[2]}"
+      page.scan(regex).map do |file_id, version|
+        "#{version},#{file_id}"
+      end
     end
   end
 
