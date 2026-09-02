@@ -12,6 +12,8 @@ cask "assinador-serpro" do
     regex(/href=.*?AssinadorSerpro[._-]v?(\d+(?:\.\d+)+)\.m?pkg/i)
   end
 
+  depends_on :macos
+
   pkg "AssinadorSerpro-#{version}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

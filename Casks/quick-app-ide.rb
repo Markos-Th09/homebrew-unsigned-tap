@@ -13,6 +13,8 @@ cask "quick-app-ide" do
     regex(/quickapp[._-]ide[._-]*?v?(\d+(?:\.\d+)+)\.pkg/i)
   end
 
+  depends_on :macos
+
   pkg "quickapp-ide-#{version}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

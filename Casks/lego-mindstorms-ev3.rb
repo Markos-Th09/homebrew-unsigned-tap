@@ -13,6 +13,8 @@ cask "lego-mindstorms-ev3" do
     strategy :header_match
   end
 
+  depends_on :macos
+
   pkg "LEGO MINDSTORMS EV3 Home Edition.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

@@ -18,6 +18,7 @@ cask "aptible" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on formula: "libfido2"
+  depends_on :macos
 
   pkg "aptible-toolbelt-#{version.csv.first}+#{version.csv.second}-mac-os-x.10.15.7-1.pkg"
 

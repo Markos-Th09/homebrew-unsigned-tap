@@ -27,7 +27,7 @@ cask "kvirc" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "KVIrc.app"
 

@@ -25,6 +25,8 @@ cask "dosbox-x-app" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  depends_on :macos
+
   app "dosbox-x/dosbox-x.app"
 
   postflight do

@@ -26,6 +26,8 @@ cask "duckietv" do
     end
   end
 
+  depends_on :macos
+
   pkg "DuckieTV-#{version}-OSX-x64.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

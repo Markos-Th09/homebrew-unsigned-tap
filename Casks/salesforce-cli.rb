@@ -19,6 +19,8 @@ cask "salesforce-cli" do
     end
   end
 
+  depends_on :macos
+
   pkg "sf-v#{version.csv.first}-#{version.csv.second}-#{arch}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

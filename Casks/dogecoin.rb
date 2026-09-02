@@ -14,10 +14,12 @@ cask "dogecoin" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  depends_on :macos
+
   app "Dogecoin-Qt.app"
 
-  preflight do
-    set_permissions "#{staged_path}/Dogecoin-Qt.app", "0755"
+  preflight_steps do
+    set_permissions "Dogecoin-Qt.app", "0755"
   end
 
   postflight do

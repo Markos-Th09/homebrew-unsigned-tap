@@ -12,6 +12,8 @@ cask "syncplay" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "Syncplay.app"
 
   postflight do

@@ -9,22 +9,16 @@ cask "lightproxy" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  depends_on :macos
+
   app "LightProxy.app"
 
   postflight do
     system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LightProxy.app"
   end
 
-  uninstall_postflight do
-    stdout, * = system_command "/usr/bin/security",
-                               args: ["find-certificate", "-a", "-c", "LightProxy", "-Z"],
-                               sudo: true
-    hashes = stdout.lines.grep(/^SHA-256 hash:/) { |l| l.split(":").second.strip }
-    hashes.each do |h|
-      system_command "/usr/bin/security",
-                     args: ["delete-certificate", "-Z", h],
-                     sudo: true
-    end
+  uninstall_postflight_steps do
+    delete_keychain_certificates "LightProxy"
   end
 
   caveats do

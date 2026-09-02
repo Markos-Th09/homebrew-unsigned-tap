@@ -7,6 +7,8 @@ cask "deepstream" do
   desc "Data-sync realtime server"
   homepage "https://deepstream.io/"
 
+  depends_on :macos
+
   pkg "deepstream.io-mac-#{version}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

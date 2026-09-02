@@ -15,7 +15,7 @@ cask "qbittorrent@lt20" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   conflicts_with cask: "qbittorrent"
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
 

@@ -14,6 +14,8 @@ cask "dungeon-crawl-stone-soup-console" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
+  depends_on :macos
+
   app "Dungeon Crawl Stone Soup - Console.app"
 
   postflight do
