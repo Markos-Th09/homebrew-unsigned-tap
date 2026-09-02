@@ -28,6 +28,10 @@ jobs:
       - name: Tap this repository
         run: brew tap SoftwareRat/homebrew-unsigned-tap "$(pwd)"
 
+      # Homebrew now requires explicit trust before loading casks from taps.
+      - name: Trust tapped casks for audit
+        run: brew trust SoftwareRat/unsigned-tap
+
       # Determine which casks changed in this push/PR.
       # Falls back to all casks when we cannot determine a diff (e.g. a
       # force-push or direct push to a branch with no base to compare).
