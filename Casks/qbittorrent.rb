@@ -17,8 +17,7 @@ cask "qbittorrent" do
     end
   end
 
-  url "https://downloads.sourceforge.net/qbittorrent/qbittorrent-mac/qbittorrent-#{version}/qbittorrent-#{version}.dmg",
-      verified: "downloads.sourceforge.net/qbittorrent/qbittorrent-mac/"
+  url "https://downloads.sourceforge.net/qbittorrent/qbittorrent-mac/qbittorrent-#{version}/qbittorrent-#{version}.dmg"
   name "qBittorrent"
   desc "Peer to peer Bitorrent client"
   homepage "https://www.qbittorrent.org/"

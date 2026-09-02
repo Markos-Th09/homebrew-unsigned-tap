@@ -2,8 +2,7 @@ cask "lepton" do
   version "1.10.0"
   sha256 "060071b6b2c3e52e0be04e6f118d77fbcc7afdae50895545bfda0b04b9cc1c12"
 
-  url "https://github.com/hackjutsu/Lepton/releases/download/v#{version}/Lepton-#{version}.dmg",
-      verified: "github.com/hackjutsu/Lepton/"
+  url "https://github.com/hackjutsu/Lepton/releases/download/v#{version}/Lepton-#{version}.dmg"
   name "Lepton"
   desc "Snippet management app"
   homepage "https://hackjutsu.com/Lepton/"
