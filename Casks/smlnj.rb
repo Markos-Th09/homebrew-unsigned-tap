@@ -12,6 +12,8 @@ cask "smlnj" do
     regex(%r{href=.*?/smlnj-amd64-(\d+(?:\.\d+)*)\.pkg}i)
   end
 
+  depends_on :macos
+
   pkg "smlnj-amd64-#{version}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

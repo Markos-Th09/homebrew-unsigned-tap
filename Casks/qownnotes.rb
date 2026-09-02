@@ -15,7 +15,7 @@ cask "qownnotes" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   auto_updates true
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "QOwnNotes.app"
 

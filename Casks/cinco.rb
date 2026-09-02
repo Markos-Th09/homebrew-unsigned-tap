@@ -12,6 +12,8 @@ cask "cinco" do
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  depends_on :macos
+
   pkg "Install Cinco.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

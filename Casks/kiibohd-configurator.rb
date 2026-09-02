@@ -10,6 +10,7 @@ cask "kiibohd-configurator" do
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on formula: "dfu-util"
+  depends_on :macos
 
   app "Kiibohd Configurator.app"
 

@@ -7,6 +7,8 @@ cask "logdna-cli" do
   desc "Command-line interface for LogDNA"
   homepage "https://www.mezmo.com/"
 
+  depends_on :macos
+
   pkg "logdna-cli.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

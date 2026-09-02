@@ -19,10 +19,12 @@ cask "vertcoin-core" do
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
 
+  depends_on :macos
+
   app "Vertcoin-Qt.app", target: "Vertcoin Core.app"
 
-  preflight do
-    set_permissions "#{staged_path}/Vertcoin-Qt.app", "0755"
+  preflight_steps do
+    set_permissions "Vertcoin-Qt.app", "0755"
   end
 
   postflight do

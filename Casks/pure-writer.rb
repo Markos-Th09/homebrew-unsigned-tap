@@ -20,6 +20,8 @@ cask "pure-writer" do
     end
   end
 
+  depends_on :macos
+
   pkg "Pure Writer-#{version.csv.second}.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

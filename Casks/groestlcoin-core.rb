@@ -12,14 +12,14 @@ cask "groestlcoin-core" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
 
   app "Groestlcoin-Qt.app", target: "Groestlcoin Core.app"
 
-  preflight do
-    set_permissions "#{staged_path}/Groestlcoin-Qt.app", "0755"
+  preflight_steps do
+    set_permissions "Groestlcoin-Qt.app", "0755"
   end
 
   postflight do

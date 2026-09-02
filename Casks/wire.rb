@@ -24,6 +24,8 @@ cask "wire" do
     end
   end
 
+  depends_on :macos
+
   pkg "Wire.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

@@ -15,6 +15,8 @@ cask "fpc-laz" do
     end
   end
 
+  depends_on :macos
+
   pkg "fpc-#{version.csv.first}-intelarm64-macosx.mpkg/Contents/Packages/fpc-#{version.csv.first}-intelarm64-macosx.pkg"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check

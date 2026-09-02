@@ -15,6 +15,7 @@ cask "displaycal" do
 
   auto_updates true
   depends_on formula: "argyll-cms"
+  depends_on :macos
 
   pkg "DisplayCAL-#{version}.pkg"
 

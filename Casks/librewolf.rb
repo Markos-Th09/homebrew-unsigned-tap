@@ -26,6 +26,8 @@ cask "librewolf" do
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/librewolf.wrapper.sh"
 
+  depends_on :macos
+
   app "LibreWolf.app"
   binary shimscript, target: "librewolf"
 
