@@ -1,12 +1,11 @@
 cask "wine@staging" do
-  version "11.4"
-  sha256 "111a7b6b37c816aef48bf95887dc88f5601029466fefd48886a4f827e8efe19c"
+  version "11.16"
+  sha256 "cd68f230c773a761b8a0423a08c51fbe49e89b6e52246f3866898d259a4988c6"
 
   # Current winehq packages are deprecated and these are packages from
   # the new maintainers that will eventually be pushed to Winehq.
   # See https://www.winehq.org/pipermail/wine-devel/2021-July/191504.html
-  url "https://github.com/Gcenx/macOS_Wine_builds/releases/download/#{version.major_minor}/wine-staging-#{version}-osx64.tar.xz",
-      verified: "github.com/Gcenx/macOS_Wine_builds/"
+  url "https://github.com/Gcenx/macOS_Wine_builds/releases/download/#{version.major_minor}/wine-staging-#{version}-osx64.tar.xz"
   name "WineHQ-staging"
   desc "Compatibility layer to run Windows applications"
   homepage "https://wiki.winehq.org/MacOS"
@@ -38,10 +37,11 @@ cask "wine@staging" do
     "wine@devel",
   ]
   depends_on cask: "gstreamer-runtime"
+  depends_on :macos
 
   app "Wine Staging.app"
-  binary "#{dir_path}/start/bin/appdb"
   dir_path = "#{appdir}/Wine Staging.app/Contents/Resources"
+  binary "#{dir_path}/start/bin/appdb"
   binary "#{dir_path}/start/bin/winehelp"
   binary "#{dir_path}/wine/bin/msidb"
   binary "#{dir_path}/wine/bin/msiexec"
