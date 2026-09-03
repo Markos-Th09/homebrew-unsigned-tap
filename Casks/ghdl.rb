@@ -64,16 +64,18 @@ cask "ghdl" do
   directory = "ghdl-llvm-#{version}-macos#{macos_version}-#{arch}"
 
   ghdlbins = ["ghdl", "ghwdump", "ghdl1-llvm"]
+  binary "#{directory}/include/ghdl", target: "#{HOMEBREW_PREFIX}/include/ghdl"
   ghdlbins.each do |bin|
-    postflight do
-      system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/#{directory}/bin/#{bin}"
-    end
-
     binary "#{directory}/bin/#{bin}"
   end
 
-  binary "#{directory}/include/ghdl", target: "#{HOMEBREW_PREFIX}/include/ghdl"
   binary "#{directory}/lib/ghdl", target: "#{HOMEBREW_PREFIX}/lib/ghdl"
+
+  postflight do
+    ghdlbins.each do |bin|
+      system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/#{directory}/bin/#{bin}"
+    end
+  end
 
   # No zap stanza required
 end
