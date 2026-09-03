@@ -8,6 +8,10 @@ cask "armory" do
   homepage "https://btcarmory.com/"
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   depends_on :macos
 
