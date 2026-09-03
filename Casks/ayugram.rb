@@ -1,6 +1,6 @@
 cask "ayugram" do
-  version "6.3.10"
-  sha256 "9ac1c4f4e7ca32fa0fdc07006639d17fffe346de59898dfe0a217d588879c62a"
+  version "7.0.9"
+  sha256 "244bb500accfb56f006d5678aeecee4532a8eb1a3dfaaa259da87310cb37241f"
 
   url "https://github.com/AyuGram/AyuGramDesktop/releases/download/v#{version}/AyuGram.dmg"
   name "AyuGram"
