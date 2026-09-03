@@ -1,6 +1,6 @@
 cask "lumen" do
-  version "1.3.0"
-  sha256 "354cc6f83728a4bb4d2d469195afe7abcc5160ea1ca915ec84aee72c7907cd52"
+  version "1.3.1"
+  sha256 "32f7a616f25e568738547a6763ea14cb0b8d1cfa0936584fd1ec0e947cec9d2d"
 
   url "https://github.com/anishathalye/lumen/releases/download/v#{version}/Lumen.zip"
   name "Lumen"
