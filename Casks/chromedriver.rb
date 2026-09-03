@@ -22,6 +22,8 @@ cask "chromedriver" do
 
   depends_on :macos
 
+  conflicts_with cask: "chromedriver@beta"
+
   binary "chromedriver-mac-#{arch}/chromedriver"
 
   postflight_steps do
