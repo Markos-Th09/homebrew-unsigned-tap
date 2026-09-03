@@ -8,8 +8,8 @@ cask "qbittorrent" do
     end
   end
   on_big_sur :or_newer do
-    version "5.0.5"
-    sha256 "7285e98b5ef4b9a227247dcd933f1a556bfc1ff10901fc7aedb0c4b7ad082814"
+    version "5.2.3"
+    sha256 "9e37f6c7ff848c7bdd3c10167614c0cb78c00e2ddcc323f1ad3ac6c008a0481f"
 
     livecheck do
       url "https://sourceforge.net/projects/qbittorrent/rss?path=/qbittorrent-mac"
