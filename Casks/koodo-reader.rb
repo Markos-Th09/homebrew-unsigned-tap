@@ -1,9 +1,9 @@
 cask "koodo-reader" do
   arch arm: "arm64", intel: "x64"
 
-  version "1.7.4"
-  sha256 arm:   "def811c8e477bda788ae1036a395da499556ecbd2ee624249d95c897576efc41",
-         intel: "6270ed3bf37965de4e9d430de4d72036f70df8d957f0220419424947081f324e"
+  version "2.4.3"
+  sha256 arm:   "75dc734f0c1106f04a6e7d091f8ed1ae7eaff56a2af19472214b32ca1cc7936d",
+         intel: "8992ed229986ea9ce43f1b72be39ba6c6e9d5041dc496479208a313fb19a5a45"
 
   url "https://dl.koodoreader.com/v#{version}/Koodo-Reader-#{version}-#{arch}.dmg"
   name "Koodo Reader"
