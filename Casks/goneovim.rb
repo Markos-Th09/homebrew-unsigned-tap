@@ -33,8 +33,8 @@ cask "goneovim" do
     EOS
   end
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/goneovim.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/goneovim.app"]
   end
 
   zap trash: [

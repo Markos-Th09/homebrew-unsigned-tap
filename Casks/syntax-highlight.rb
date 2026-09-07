@@ -26,8 +26,8 @@ cask "syntax-highlight" do
   app "Syntax Highlight.app"
   binary "#{appdir}/Syntax Highlight.app/Contents/Resources/syntax_highlight_cli"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Syntax Highlight.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Syntax Highlight.app"]
   end
 
   zap trash: [

@@ -18,8 +18,8 @@ cask "angband-app" do
 
   app "Angband.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Angband.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Angband.app"]
   end
 
   zap trash: [

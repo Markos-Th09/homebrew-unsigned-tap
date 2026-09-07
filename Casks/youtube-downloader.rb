@@ -13,8 +13,8 @@ cask "youtube-downloader" do
 
   app "Youtube Downloader.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Youtube Downloader.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Youtube Downloader.app"]
   end
 
   zap trash: "~/Library/Preferences/denbeke.Youtube-Downloader.plist"

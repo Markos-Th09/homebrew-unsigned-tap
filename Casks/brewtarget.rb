@@ -18,8 +18,8 @@ cask "brewtarget" do
 
   app "brewtarget_#{version}_MacOS.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/brewtarget_#{version}_MacOS.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/brewtarget_#{version}_MacOS.app"]
   end
 
   zap trash: [

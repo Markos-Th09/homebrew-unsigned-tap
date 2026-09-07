@@ -19,8 +19,8 @@ cask "lw-scanner" do
 
   binary "bin/lw-scanner"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/bin/lw-scanner"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/bin/lw-scanner"]
   end
 
   zap trash: "~/.config/lw-scanner"

@@ -21,8 +21,8 @@ cask "webots" do
 
   app "Webots.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Webots.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Webots.app"]
   end
 
   uninstall quit: "com.cyberbotics.webots"

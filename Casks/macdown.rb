@@ -27,8 +27,8 @@ cask "macdown" do
   app "MacDown.app"
   binary "#{appdir}/MacDown.app/Contents/SharedSupport/bin/macdown"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/MacDown.app"]
   end
 
   zap trash: [

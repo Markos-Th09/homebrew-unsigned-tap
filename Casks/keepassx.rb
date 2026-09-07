@@ -18,8 +18,8 @@ cask "keepassx" do
 
   app "KeePassX.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KeePassX.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/KeePassX.app"]
   end
 
   uninstall_preflight_steps do

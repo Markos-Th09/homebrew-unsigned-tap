@@ -18,8 +18,8 @@ cask "bino" do
 
   app "Bino.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Bino.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Bino.app"]
   end
 
   zap trash: [

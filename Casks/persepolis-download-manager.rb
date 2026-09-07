@@ -18,8 +18,8 @@ cask "persepolis-download-manager" do
 
   app "Persepolis Download Manager.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Persepolis Download Manager.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Persepolis Download Manager.app"]
   end
 
   zap trash: [

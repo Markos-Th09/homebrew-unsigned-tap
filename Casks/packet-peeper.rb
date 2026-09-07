@@ -13,8 +13,8 @@ cask "packet-peeper" do
 
   app "Packet Peeper.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Packet Peeper.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Packet Peeper.app"]
   end
 
   zap trash: [

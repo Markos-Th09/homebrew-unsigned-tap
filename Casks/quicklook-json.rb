@@ -13,8 +13,8 @@ cask "quicklook-json" do
 
   # Upstream disable! date: "2025-12-23", because: :no_longer_meets_criteria
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QuickLookJSON.qlgenerator"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/QuickLookJSON.qlgenerator"]
   end
 
   # No zap stanza required

@@ -18,8 +18,8 @@ cask "qtspim" do
 
   # Upstream disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QtSpim.mpkg/Contents/Packages/QtSpim.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/QtSpim.mpkg/Contents/Packages/QtSpim.pkg"]
   end
 
   uninstall pkgutil: "org.larusstone.pkg.QtSpim"

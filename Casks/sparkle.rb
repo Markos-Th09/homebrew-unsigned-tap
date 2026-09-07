@@ -18,8 +18,8 @@ cask "sparkle" do
 
   app "Sparkle Test App.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Sparkle Test App.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Sparkle Test App.app"]
   end
 
   zap trash: [

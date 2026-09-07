@@ -13,8 +13,8 @@ cask "leocad" do
 
   app "LeoCAD.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LeoCAD.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/LeoCAD.app"]
   end
 
   zap trash: [

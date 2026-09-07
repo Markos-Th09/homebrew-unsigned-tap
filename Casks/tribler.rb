@@ -18,8 +18,8 @@ cask "tribler" do
 
   app "Tribler.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Tribler.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Tribler.app"]
   end
 
   zap trash: [

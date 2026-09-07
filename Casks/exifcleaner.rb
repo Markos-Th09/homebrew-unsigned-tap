@@ -13,8 +13,8 @@ cask "exifcleaner" do
 
   app "ExifCleaner.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ExifCleaner.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/ExifCleaner.app"]
   end
 
   zap trash: [

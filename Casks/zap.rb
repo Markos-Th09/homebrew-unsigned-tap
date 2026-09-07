@@ -22,8 +22,8 @@ cask "zap" do
 
   app "ZAP.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ZAP.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/ZAP.app"]
   end
 
   zap trash: [

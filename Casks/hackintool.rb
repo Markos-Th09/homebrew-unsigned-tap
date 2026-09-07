@@ -14,8 +14,8 @@ cask "hackintool" do
 
   app "Hackintool.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Hackintool.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Hackintool.app"]
   end
 
   zap trash: [

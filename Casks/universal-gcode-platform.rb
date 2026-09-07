@@ -21,8 +21,8 @@ cask "universal-gcode-platform" do
 
   app "Universal Gcode Sender.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Universal Gcode Sender.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Universal Gcode Sender.app"]
   end
 
   zap trash: [

@@ -31,8 +31,8 @@ cask "candybar" do
 
   app "CandyBar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CandyBar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/CandyBar.app"]
   end
 
   zap trash: [

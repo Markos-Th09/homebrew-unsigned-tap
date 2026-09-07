@@ -19,8 +19,8 @@ cask "dmidiplayer" do
 
   app "dmidiplayer.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/dmidiplayer.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/dmidiplayer.app"]
   end
 
   zap trash: [

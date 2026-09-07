@@ -13,8 +13,8 @@ cask "melonds" do
 
   app "melonDS.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/melonDS.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/melonDS.app"]
   end
 
   zap trash: "~/Library/Preferences/melonDS/melonDS.ini"

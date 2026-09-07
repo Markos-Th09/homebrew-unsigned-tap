@@ -21,8 +21,8 @@ cask "davmail-app" do
 
   app "DavMail.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DavMail.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/DavMail.app"]
   end
 
   zap trash: [

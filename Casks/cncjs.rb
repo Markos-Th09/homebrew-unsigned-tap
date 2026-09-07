@@ -21,8 +21,8 @@ cask "cncjs" do
 
   app "CNCjs.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CNCjs.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/CNCjs.app"]
   end
 
   zap trash: [

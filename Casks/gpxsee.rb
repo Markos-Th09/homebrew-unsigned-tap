@@ -18,8 +18,8 @@ cask "gpxsee" do
 
   app "GPXSee.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/GPXSee.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/GPXSee.app"]
   end
 
   zap trash: [

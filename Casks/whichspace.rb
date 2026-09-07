@@ -19,8 +19,8 @@ cask "whichspace" do
 
   app "WhichSpace.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WhichSpace.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/WhichSpace.app"]
   end
 
   uninstall quit: "io.gechr.WhichSpace"

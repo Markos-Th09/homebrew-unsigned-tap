@@ -13,8 +13,8 @@ cask "qtpass" do
 
   app "QtPass.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QtPass.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/QtPass.app"]
   end
 
   zap trash: [

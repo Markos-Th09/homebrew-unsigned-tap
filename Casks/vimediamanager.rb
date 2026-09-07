@@ -19,8 +19,8 @@ cask "vimediamanager" do
 
   app "ViMediaManager.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ViMediaManager.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/ViMediaManager.app"]
   end
 
   zap trash: [

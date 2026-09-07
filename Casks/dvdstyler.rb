@@ -18,8 +18,8 @@ cask "dvdstyler" do
 
   app "DVDStyler.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DVDStyler.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/DVDStyler.app"]
   end
 
   zap trash: [

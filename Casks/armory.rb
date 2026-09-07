@@ -17,8 +17,8 @@ cask "armory" do
 
   app "Armory.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Armory.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Armory.app"]
   end
 
   caveats do

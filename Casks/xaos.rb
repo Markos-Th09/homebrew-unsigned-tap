@@ -18,8 +18,8 @@ cask "xaos" do
 
   app "XaoS.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XaoS.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/XaoS.app"]
   end
 
   zap trash: "~/Library/Preferences/net.sourceforge.xaos.XaoS.plist"

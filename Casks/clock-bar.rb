@@ -27,8 +27,8 @@ cask "clock-bar" do
 
   app "Clock Bar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Clock Bar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Clock Bar.app"]
   end
 
   zap trash: [

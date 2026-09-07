@@ -13,8 +13,8 @@ cask "tomatobar" do
 
   app "TomatoBar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TomatoBar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TomatoBar.app"]
   end
 
   zap trash: [

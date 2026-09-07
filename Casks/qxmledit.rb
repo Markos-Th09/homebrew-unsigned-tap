@@ -18,8 +18,8 @@ cask "qxmledit" do
 
   app "QXmlEdit.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QXmlEdit.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/QXmlEdit.app"]
   end
 
   zap trash: [

@@ -13,8 +13,8 @@ cask "whale" do
 
   app "Whale.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Whale.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Whale.app"]
   end
 
   zap trash: [

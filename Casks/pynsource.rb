@@ -18,8 +18,8 @@ cask "pynsource" do
 
   app "Pynsource.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Pynsource.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Pynsource.app"]
   end
 
   zap trash: [

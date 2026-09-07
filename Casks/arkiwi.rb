@@ -19,8 +19,8 @@ cask "arkiwi" do
 
   app "ArKiwi.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ArKiwi.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/ArKiwi.app"]
   end
 
   zap trash: [

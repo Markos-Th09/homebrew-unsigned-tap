@@ -27,8 +27,8 @@ cask "vertcoin-core" do
     set_permissions "Vertcoin-Qt.app", "0755"
   end
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vertcoin-Qt.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Vertcoin-Qt.app"]
   end
 
   zap trash: "~/Library/Preferences/org.vertcoin.Vertcoin-Qt.plist"

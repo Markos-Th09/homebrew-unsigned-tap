@@ -19,8 +19,8 @@ cask "copytranslator" do
 
   app "copytranslator.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/copytranslator.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/copytranslator.app"]
   end
 
   zap trash: [

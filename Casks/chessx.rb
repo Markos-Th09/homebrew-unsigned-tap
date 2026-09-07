@@ -24,8 +24,8 @@ cask "chessx" do
 
   app "ChessX.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/ChessX.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/ChessX.app"]
   end
 
   zap trash: [

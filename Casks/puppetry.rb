@@ -13,8 +13,8 @@ cask "puppetry" do
 
   app "puppetry.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/puppetry.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/puppetry.app"]
   end
 
   zap trash: [

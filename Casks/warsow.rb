@@ -18,8 +18,8 @@ cask "warsow" do
 
   app "Warsow.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Warsow.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Warsow.app"]
   end
 
   zap trash: [

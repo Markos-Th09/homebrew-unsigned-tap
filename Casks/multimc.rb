@@ -21,8 +21,8 @@ cask "multimc" do
 
   app "MultiMC.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/MultiMC.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/MultiMC.app"]
   end
 
   zap trash: [

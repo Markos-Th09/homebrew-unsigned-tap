@@ -26,8 +26,8 @@ cask "asix-ax88179" do
 
   pkg "ASIX_USB_Device_Installer_v#{version.csv.first}.pkg"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/ASIX_USB_Device_Installer_v#{version.csv.first}.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/ASIX_USB_Device_Installer_v#{version.csv.first}.pkg"]
   end
 
   uninstall early_script: {

@@ -16,8 +16,8 @@ cask "logisim-evolution" do
 
   app "Logisim-evolution.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Logisim-evolution.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Logisim-evolution.app"]
   end
 
   zap trash: "~/Library/Preferences/com.cburch.logisim.plist"

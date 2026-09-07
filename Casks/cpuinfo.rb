@@ -13,8 +13,8 @@ cask "cpuinfo" do
 
   app "cpuinfo.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cpuinfo.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/cpuinfo.app"]
   end
 
   zap trash: [

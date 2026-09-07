@@ -20,8 +20,8 @@ cask "opencore-configurator" do
 
   app "OpenCore Configurator.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenCore Configurator.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/OpenCore Configurator.app"]
   end
 
   zap trash: [

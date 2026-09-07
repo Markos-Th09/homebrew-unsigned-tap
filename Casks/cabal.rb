@@ -13,8 +13,8 @@ cask "cabal" do
 
   app "Cabal.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Cabal.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Cabal.app"]
   end
 
   zap trash: [

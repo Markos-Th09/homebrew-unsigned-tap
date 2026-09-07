@@ -19,8 +19,8 @@ cask "ankama" do
 
   app "Ankama Launcher.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Ankama Launcher.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Ankama Launcher.app"]
   end
 
   uninstall quit: "Ankama Launcher"

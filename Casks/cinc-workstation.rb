@@ -48,8 +48,8 @@ cask "cinc-workstation" do
 
   pkg "cinc-workstation-#{version}-1.#{arch}.pkg"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/cinc-workstation-#{version}-1.#{arch}.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/cinc-workstation-#{version}-1.#{arch}.pkg"]
   end
 
   uninstall launchctl: "io.chef.chef-workstation.app",

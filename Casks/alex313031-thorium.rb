@@ -44,8 +44,8 @@ cask "alex313031-thorium" do
     EOS
   end
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium Browser.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Thorium Browser.app"]
   end
 
   zap trash: [

@@ -22,8 +22,8 @@ cask "groestlcoin-core" do
     set_permissions "Groestlcoin-Qt.app", "0755"
   end
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Groestlcoin-Qt.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Groestlcoin-Qt.app"]
   end
 
   zap trash: "~/Library/Preferences/org.groestlcoin.Groestlcoin-Qt.plist"

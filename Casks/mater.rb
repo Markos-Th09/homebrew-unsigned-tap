@@ -9,8 +9,8 @@ cask "mater" do
 
     app "Mater.app"
 
-    postflight do
-      system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Mater.app"
+    postflight_steps do
+      run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Mater.app"]
     end
   end
   on_intel do

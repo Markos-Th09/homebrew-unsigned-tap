@@ -25,8 +25,8 @@ cask "gdat" do
 
   app "Genealogical DNA Analysis Tool.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Genealogical DNA Analysis Tool.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Genealogical DNA Analysis Tool.app"]
   end
 
   zap trash: [

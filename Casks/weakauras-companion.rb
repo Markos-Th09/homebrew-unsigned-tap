@@ -13,8 +13,8 @@ cask "weakauras-companion" do
 
   app "WeakAuras Companion.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/WeakAuras Companion.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/WeakAuras Companion.app"]
   end
 
   zap trash: [

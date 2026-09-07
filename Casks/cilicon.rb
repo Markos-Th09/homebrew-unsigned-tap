@@ -27,8 +27,8 @@ cask "cilicon" do
 
   app "Cilicon.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Cilicon.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Cilicon.app"]
   end
 
   zap trash: [

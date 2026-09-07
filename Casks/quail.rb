@@ -13,8 +13,8 @@ cask "quail" do
 
   app "Quail.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quail.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Quail.app"]
   end
 
   zap trash: [

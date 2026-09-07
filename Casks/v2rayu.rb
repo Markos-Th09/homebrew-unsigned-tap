@@ -24,8 +24,8 @@ cask "v2rayu" do
 
   app "V2rayU.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/V2rayU.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/V2rayU.app"]
   end
 
   uninstall launchctl: [

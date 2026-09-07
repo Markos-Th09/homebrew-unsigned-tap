@@ -35,8 +35,8 @@ cask "powershell@preview" do
 
   pkg "powershell-#{version}-osx-#{arch}.pkg"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/powershell-#{version}-osx-#{arch}.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/powershell-#{version}-osx-#{arch}.pkg"]
   end
 
   uninstall pkgutil: "com.microsoft.powershell-preview",

@@ -19,8 +19,8 @@ cask "bdinfo" do
 
   app "BDInfo OSX.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BDInfo OSX.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/BDInfo OSX.app"]
   end
 
   zap trash: [

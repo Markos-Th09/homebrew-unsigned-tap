@@ -37,8 +37,8 @@ cask "katrain" do
 
   app "KaTrain.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/KaTrain.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/KaTrain.app"]
   end
 
   zap trash: "~/.katrain"

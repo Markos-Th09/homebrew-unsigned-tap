@@ -13,8 +13,8 @@ cask "nuage" do
 
   app "Nuage.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Nuage.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Nuage.app"]
   end
 
   zap trash: [

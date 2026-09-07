@@ -13,8 +13,8 @@ cask "pokerth" do
 
   app "pokerth.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pokerth.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/pokerth.app"]
   end
 
   zap trash: "~/.pokerth"

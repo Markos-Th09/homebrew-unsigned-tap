@@ -13,8 +13,8 @@ cask "lightproxy" do
 
   app "LightProxy.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LightProxy.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/LightProxy.app"]
   end
 
   uninstall_postflight_steps do

@@ -34,8 +34,8 @@ cask "the-unofficial-homestuck-collection" do
 
   app "The Unofficial Homestuck Collection.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/The Unofficial Homestuck Collection.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/The Unofficial Homestuck Collection.app"]
   end
 
   zap trash: [

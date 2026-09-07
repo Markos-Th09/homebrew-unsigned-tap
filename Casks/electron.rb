@@ -22,8 +22,8 @@ cask "electron" do
   app "Electron.app"
   binary "#{appdir}/Electron.app/Contents/MacOS/Electron", target: "electron"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Electron.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Electron.app"]
   end
 
   zap trash: [

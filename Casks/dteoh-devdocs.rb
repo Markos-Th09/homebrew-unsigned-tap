@@ -13,8 +13,8 @@ cask "dteoh-devdocs" do
 
   app "DevDocs.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DevDocs.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/DevDocs.app"]
   end
 
   zap trash: [

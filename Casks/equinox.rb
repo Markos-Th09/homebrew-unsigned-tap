@@ -13,8 +13,8 @@ cask "equinox" do
 
   app "Equinox.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Equinox.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Equinox.app"]
   end
 
   zap trash: [

@@ -13,8 +13,8 @@ cask "qlcolorcode" do
 
   # Upstream deprecate! date: "2025-09-22", because: :no_longer_meets_criteria
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/QLColorCode.qlgenerator"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/QLColorCode.qlgenerator"]
   end
 
   zap trash: "~/Library/Preferences/org.n8gray.QLColorCode.plist"

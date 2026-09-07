@@ -13,8 +13,8 @@ cask "vitals" do
 
   app "Vitals.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Vitals.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Vitals.app"]
   end
 
   zap trash: [

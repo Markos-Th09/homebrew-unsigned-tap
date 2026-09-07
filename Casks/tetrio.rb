@@ -21,8 +21,8 @@ cask "tetrio" do
 
   app "TETR.IO.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TETR.IO.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TETR.IO.app"]
   end
 
   zap trash: [

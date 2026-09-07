@@ -12,8 +12,8 @@ cask "blheli-configurator" do
 
   app "BLHeli Configurator.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BLHeli Configurator.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/BLHeli Configurator.app"]
   end
 
   caveats do

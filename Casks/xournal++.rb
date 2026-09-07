@@ -21,8 +21,8 @@ cask "xournal++" do
 
   app "Xournal++.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xournal++.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Xournal++.app"]
   end
 
   zap trash: [

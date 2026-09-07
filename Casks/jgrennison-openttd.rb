@@ -13,8 +13,8 @@ cask "jgrennison-openttd" do
 
   app "OpenTTD.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenTTD.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/OpenTTD.app"]
   end
 
   zap trash: [

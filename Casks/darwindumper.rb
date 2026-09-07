@@ -20,8 +20,8 @@ cask "darwindumper" do
 
   app "DarwinDumper.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/DarwinDumper.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/DarwinDumper.app"]
   end
 
   zap trash: [

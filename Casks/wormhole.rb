@@ -18,8 +18,8 @@ cask "wormhole" do
 
   app "Wormhole.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wormhole.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Wormhole.app"]
   end
 
   zap trash: "~/Library/Saved Application State/er.Wormhole.savedState"

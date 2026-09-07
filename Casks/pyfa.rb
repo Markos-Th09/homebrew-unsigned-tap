@@ -18,8 +18,8 @@ cask "pyfa" do
 
   app "pyfa.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/pyfa.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/pyfa.app"]
   end
 
   zap trash: [

@@ -18,8 +18,8 @@ cask "quassel-client" do
 
   app "Quassel Client.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Quassel Client.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Quassel Client.app"]
   end
 
   zap trash: "~/Library/Preferences/org.quassel-irc.client.plist"

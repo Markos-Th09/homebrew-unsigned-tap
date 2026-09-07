@@ -16,8 +16,8 @@ cask "tiddly" do
 
   app "TiddlyDesktop-mac#{arch}-v#{version}/TiddlyDesktop.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TiddlyDesktop.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TiddlyDesktop.app"]
   end
 
   zap trash: [

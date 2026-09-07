@@ -36,8 +36,8 @@ cask "metasploit" do
   binary "/opt/metasploit-framework/bin/msfrpcd"
   binary "/opt/metasploit-framework/bin/msfvenom"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"]
   end
 
   uninstall script: {

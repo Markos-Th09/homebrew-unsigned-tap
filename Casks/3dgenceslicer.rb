@@ -23,8 +23,8 @@ cask "3dgenceslicer" do
 
   app "3DGence Slicer #{version.csv.second}.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/3DGence Slicer #{version.csv.second}.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/3DGence Slicer #{version.csv.second}.app"]
   end
 
   zap trash: [

@@ -18,8 +18,8 @@ cask "deluge" do
 
   app "Deluge.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Deluge.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Deluge.app"]
   end
 
   zap trash: [

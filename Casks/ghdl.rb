@@ -71,9 +71,9 @@ cask "ghdl" do
 
   binary "#{directory}/lib/ghdl", target: "#{HOMEBREW_PREFIX}/lib/ghdl"
 
-  postflight do
+  postflight_steps do
     ghdlbins.each do |bin|
-      system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/#{directory}/bin/#{bin}"
+      run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/#{directory}/bin/#{bin}"]
     end
   end
 

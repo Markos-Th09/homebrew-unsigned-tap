@@ -26,8 +26,8 @@ cask "qlmarkdown" do
   app "QLMarkdown.app"
   binary "#{appdir}/QLMarkdown.app/Contents/Resources/qlmarkdown_cli"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/QLMarkdown.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/QLMarkdown.app"]
   end
 
   zap trash: [

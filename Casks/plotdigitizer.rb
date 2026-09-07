@@ -18,8 +18,8 @@ cask "plotdigitizer" do
 
   app "Plot Digitizer.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Plot Digitizer.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Plot Digitizer.app"]
   end
 
   # No zap stanza required

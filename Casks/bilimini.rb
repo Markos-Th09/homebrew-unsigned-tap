@@ -14,8 +14,8 @@ cask "bilimini" do
 
   app "bilimini.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/bilimini.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/bilimini.app"]
   end
 
   zap trash: [

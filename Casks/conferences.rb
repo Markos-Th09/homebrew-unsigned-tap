@@ -21,8 +21,8 @@ cask "conferences" do
 
   app "Conferences.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Conferences.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Conferences.app"]
   end
 
   zap trash: [

@@ -31,8 +31,8 @@ cask "secure-pipes" do
 
   app "Secure Pipes.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Secure Pipes.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Secure Pipes.app"]
   end
 
   caveats do

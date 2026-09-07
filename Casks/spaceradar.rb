@@ -11,8 +11,8 @@ cask "spaceradar" do
 
     app "Space Radar.app"
 
-    postflight do
-      system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Space Radar.app"
+    postflight_steps do
+      run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Space Radar.app"]
     end
   end
   on_intel do

@@ -16,7 +16,7 @@ cask "syncplay" do
 
   app "Syncplay.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Syncplay.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Syncplay.app"]
   end
 end

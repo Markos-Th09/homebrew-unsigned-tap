@@ -18,8 +18,8 @@ cask "v2ray-unofficial" do
 
   app "V2Ray-Desktop.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/V2Ray-Desktop.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/V2Ray-Desktop.app"]
   end
 
   zap trash: [

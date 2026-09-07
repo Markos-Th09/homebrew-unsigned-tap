@@ -19,8 +19,8 @@ cask "zandronum" do
   app "Zandronum.app"
   app "Doomseeker.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Zandronum.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Zandronum.app"]
   end
 
   zap trash: [

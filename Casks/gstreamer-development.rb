@@ -19,8 +19,8 @@ cask "gstreamer-development" do
 
   pkg "gstreamer-1.0-devel-#{version}-universal.pkg"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/gstreamer-1.0-devel-#{version}-universal.pkg"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/gstreamer-1.0-devel-#{version}-universal.pkg"]
   end
 
   uninstall pkgutil: [

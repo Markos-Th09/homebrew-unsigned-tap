@@ -35,8 +35,8 @@ cask "opensesame" do
 
   app "OpenSesame.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/OpenSesame.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/OpenSesame.app"]
   end
 
   zap trash: [

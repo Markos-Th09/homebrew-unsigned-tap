@@ -18,8 +18,8 @@ cask "electrocrud" do
 
   app "electrocrud.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/electrocrud.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/electrocrud.app"]
   end
 
   zap trash: [

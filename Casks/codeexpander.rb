@@ -13,8 +13,8 @@ cask "codeexpander" do
 
   app "CodeExpander.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CodeExpander.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/CodeExpander.app"]
   end
 
   zap trash: [

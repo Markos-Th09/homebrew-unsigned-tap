@@ -24,8 +24,8 @@ cask "min" do
 
   app "Min.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Min.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Min.app"]
   end
 
   zap trash: [

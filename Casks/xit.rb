@@ -11,8 +11,8 @@ cask "xit" do
 
     app "Xit.app"
 
-    postflight do
-      system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Xit.app"
+    postflight_steps do
+      run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Xit.app"]
     end
 
     caveats do

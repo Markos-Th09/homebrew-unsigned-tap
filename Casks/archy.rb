@@ -18,8 +18,8 @@ cask "archy" do
 
   binary "archyBin/archy-macos-#{version}", target: "archy"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{staged_path}/archyBin/archy-macos-#{version}"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{staged_path}/archyBin/archy-macos-#{version}"]
   end
 
   zap trash: "~/.archy_config"

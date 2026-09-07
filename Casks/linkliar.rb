@@ -18,8 +18,8 @@ cask "linkliar" do
 
   app "LinkLiar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LinkLiar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/LinkLiar.app"]
   end
 
   uninstall launchctl: [

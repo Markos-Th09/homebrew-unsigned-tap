@@ -13,8 +13,8 @@ cask "container-ps" do
 
   app "Container PS.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Container PS.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Container PS.app"]
   end
 
   zap trash: [

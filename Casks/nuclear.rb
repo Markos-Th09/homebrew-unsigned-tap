@@ -21,8 +21,8 @@ cask "nuclear" do
 
   app "nuclear.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/nuclear.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/nuclear.app"]
   end
 
   zap trash: [

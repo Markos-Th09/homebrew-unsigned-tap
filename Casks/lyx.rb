@@ -25,8 +25,8 @@ cask "lyx" do
   binary "#{appdir}/LyX.app/Contents/MacOS/maxima", target: "lyx-maxima"
   binary "#{appdir}/LyX.app/Contents/MacOS/tex2lyx"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/LyX.app"]
   end
 
   zap trash: [

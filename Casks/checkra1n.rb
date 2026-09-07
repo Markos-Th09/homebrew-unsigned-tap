@@ -19,8 +19,8 @@ cask "checkra1n" do
   app "checkra1n.app"
   binary "#{appdir}/checkra1n.app/Contents/MacOS/checkra1n"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/checkra1n.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/checkra1n.app"]
   end
 
   # No zap stanza required

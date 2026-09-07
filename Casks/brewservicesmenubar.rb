@@ -13,8 +13,8 @@ cask "brewservicesmenubar" do
 
   app "BrewServicesMenubar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BrewServicesMenubar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/BrewServicesMenubar.app"]
   end
 
   uninstall quit: "andrewnicolaou.BrewServicesMenubar"

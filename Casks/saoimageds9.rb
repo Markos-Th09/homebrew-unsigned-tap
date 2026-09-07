@@ -39,8 +39,8 @@ cask "saoimageds9" do
 
   app "SAOImageDS9.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/SAOImageDS9.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/SAOImageDS9.app"]
   end
 
   zap trash: [

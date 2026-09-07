@@ -22,8 +22,8 @@ cask "papyrus" do
 
   app "Papyrus.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Papyrus.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Papyrus.app"]
   end
 
   zap trash: [

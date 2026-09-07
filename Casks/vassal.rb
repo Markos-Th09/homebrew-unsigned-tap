@@ -18,8 +18,8 @@ cask "vassal" do
 
   app "VASSAL.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/VASSAL.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/VASSAL.app"]
   end
 
   zap trash: "~/Library/Application Support/VASSAL"

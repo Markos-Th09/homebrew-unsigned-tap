@@ -13,8 +13,8 @@ cask "amitv87-pip" do
 
   app "PiP.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PiP.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/PiP.app"]
   end
 
   zap trash: "~/Library/Saved Application State/com.boggyb.PiP.savedState"

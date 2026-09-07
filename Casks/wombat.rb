@@ -13,8 +13,8 @@ cask "wombat" do
 
   app "Wombat.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Wombat.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Wombat.app"]
   end
 
   zap trash: "~/Library/Application Support/Wombat"

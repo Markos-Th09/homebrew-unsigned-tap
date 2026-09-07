@@ -13,8 +13,8 @@ cask "cool-retro-term" do
 
   app "cool-retro-term.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/cool-retro-term.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/cool-retro-term.app"]
   end
 
   zap trash: [

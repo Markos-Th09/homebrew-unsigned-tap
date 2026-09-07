@@ -18,8 +18,8 @@ cask "baretorrent" do
 
   app "baretorrent.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/baretorrent.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/baretorrent.app"]
   end
 
   zap trash: [

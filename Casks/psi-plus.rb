@@ -18,8 +18,8 @@ cask "psi-plus" do
 
   app "Psi+.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Psi+.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Psi+.app"]
   end
 
   uninstall quit: "com.psi-plus"

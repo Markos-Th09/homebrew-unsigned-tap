@@ -16,8 +16,8 @@ cask "bloodhound" do
 
   app "BloodHound-darwin-#{arch}/BloodHound.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/BloodHound.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/BloodHound.app"]
   end
 
   zap trash: [

@@ -18,8 +18,8 @@ cask "camed" do
 
   app "CAMEd-#{version}/CAMed.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/CAMed.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/CAMed.app"]
   end
 
   caveats do

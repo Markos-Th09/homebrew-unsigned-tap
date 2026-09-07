@@ -18,8 +18,8 @@ cask "evkey" do
 
   app "EVKey.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/EVKey.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/EVKey.app"]
   end
 
   zap trash: [

@@ -14,8 +14,8 @@ cask "pb" do
 
   app "PB for Desktop.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/PB for Desktop.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/PB for Desktop.app"]
   end
 
   uninstall launchctl: "PB for Desktop",

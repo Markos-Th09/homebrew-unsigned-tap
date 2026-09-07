@@ -21,8 +21,8 @@ cask "gisto" do
 
   app "Gisto.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gisto.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Gisto.app"]
   end
 
   zap trash: [

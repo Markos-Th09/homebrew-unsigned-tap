@@ -19,8 +19,8 @@ cask "textbar" do
 
   app "TextBar.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TextBar.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TextBar.app"]
   end
 
   zap trash: [

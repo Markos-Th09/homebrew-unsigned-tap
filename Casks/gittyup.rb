@@ -35,8 +35,8 @@ cask "gittyup" do
 
   app "Gittyup.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Gittyup.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Gittyup.app"]
   end
 
   zap trash: [

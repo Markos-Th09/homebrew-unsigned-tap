@@ -22,8 +22,8 @@ cask "dogecoin" do
     set_permissions "Dogecoin-Qt.app", "0755"
   end
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Dogecoin-Qt.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Dogecoin-Qt.app"]
   end
 
   zap trash: "~/Library/com.dogecoin.Dogecoin-Qt.plist"

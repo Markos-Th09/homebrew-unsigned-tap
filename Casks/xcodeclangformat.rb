@@ -13,8 +13,8 @@ cask "xcodeclangformat" do
 
   app "XcodeClangFormat.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/XcodeClangFormat.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/XcodeClangFormat.app"]
   end
 
   zap trash: [

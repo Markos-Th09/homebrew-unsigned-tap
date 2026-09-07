@@ -16,8 +16,8 @@ cask "texstudio" do
 
   app "texstudio-#{version}-osx#{arch}.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/texstudio-#{version}-osx#{arch}.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/texstudio-#{version}-osx#{arch}.app"]
   end
 
   zap trash: [

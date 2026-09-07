@@ -22,8 +22,8 @@ cask "teamspeak-client@beta" do
 
   app "TeamSpeak.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TeamSpeak.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TeamSpeak.app"]
   end
 
   zap trash: [

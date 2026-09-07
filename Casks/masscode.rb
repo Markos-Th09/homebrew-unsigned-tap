@@ -21,8 +21,8 @@ cask "masscode" do
 
   app "massCode.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/massCode.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/massCode.app"]
   end
 
   zap trash: [

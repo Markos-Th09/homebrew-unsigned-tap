@@ -13,8 +13,8 @@ cask "milkman" do
 
   app "Milkman.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Milkman.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Milkman.app"]
   end
 
   zap trash: "~/Library/Application Support/Milkman"

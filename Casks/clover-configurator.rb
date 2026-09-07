@@ -20,8 +20,8 @@ cask "clover-configurator" do
 
   app "Clover Configurator.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Clover Configurator.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Clover Configurator.app"]
   end
 
   zap trash: [

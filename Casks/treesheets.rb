@@ -26,8 +26,8 @@ cask "treesheets" do
 
   app "TreeSheets.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/TreeSheets.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/TreeSheets.app"]
   end
 
   uninstall quit: "dot3labs.TreeSheets"

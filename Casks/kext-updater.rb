@@ -18,8 +18,8 @@ cask "kext-updater" do
 
   app "Kext Updater.app"
 
-  postflight do
-    system "xattr", "-r", "-d", "com.apple.quarantine", "#{appdir}/Kext Updater.app"
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Kext Updater.app"]
   end
 
   zap trash: [
